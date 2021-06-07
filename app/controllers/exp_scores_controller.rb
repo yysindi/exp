@@ -1,0 +1,3 @@
+class ExpScoresController < ApplicationController
+
+end
