@@ -6,7 +6,6 @@
 .green-background {
   background-color: #00EFCA;
   height: 80vh;
-  width: 100vw;
 }
 
 .app-mockup {
@@ -14,15 +13,53 @@
   height: 100vh;
   justify-content: center;
   position: absolute;
-  top: 105vh;
-  left: 65vw;
+  top: 100vh;
+  right: 3vw;
 }
 
-.jagged-bolts {
+.central-cta {
   display: flex;
-  height: 70vh;
-  justify-content: center;
+  flex-direction: column;
+  height: 470px;
+  max-width: 800px;
+  justify-content: space-between;
+  align-items: space-between;
+  margin-left: 10vw;
+  z-index: 10;
   position: absolute;
-  top: 110vh;
-  left: 35vw;
+}
+
+.cta-purple-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 120px;
+  background-color: #7B61F8;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  border-radius: 16px;
+  margin-top: 30px;
+}
+
+.cta-purple-button:hover {
+  border-color: #7B61F8;
+  color: #fff;
+  background-image: -webkit-linear-gradient(45deg, #FF85EA 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #FF85EA 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: background 500ms ease-in-out;
+  transition: background 500ms ease-in-out;
+}
+
+.cta-explainer {
+  width: 600px;
+  height: 300px;
+  border-radius: 16px;
+  color: black;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
