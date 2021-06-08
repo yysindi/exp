@@ -22,7 +22,6 @@ about = ['A great company with big ambitions to expend in the IT consultancy fie
 
 company_name = ['Beyond Retail', 'Crown commertial service', 'Frasers group', 'Atradius', 'OP', 'p', 'Merkle' ]
 
-
 paid = [0,1,1,1,1,0,0] 
 
 accepting_applications = [1,1,1,1,1,1,1]
@@ -61,17 +60,15 @@ My client is looking for high achievers with a passion for sales and technology 
 This is a remote role, and you will report directly to the Head of Business Development - Global Markets and form part of their UK based team.' ,
 'As a member of the Transformation Team, you will be right at the centre of our biggest challenges and opportunities. Our purpose is to forge best-in-class experiences for our customers and meaningful changes for teams. We put the building blocks into place to support sustainable growth. We are not about hype or buzzwords. We’re about the little and big improvements and everything in between.'
 ]
-​
+
 location = [ 'London', 'Remote', 'Remote', 'Brighton', 'Nottingham', 'London', 'Remote']
 
 counter = 0
 
-
-​
 7.times do
   job = Job.new(title: title[counter] ,description: description[counter],location:location[counter], about: about[counter], website: website[counter], industry: industry[counter], logo: logo[counter], paid: paid[counter], compensation: compensation[counter], start_date: start_date[counter], end_date: end_date[counter], accepting_applications: accepting_applications[counter], company_name: company_name[counter])
   job.save
   counter += 1
 end
-​
+
 p 'Completed!!!!!!!!!!!!!!!!!!!!'
