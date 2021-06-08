@@ -1,0 +1,80 @@
+.bg-image {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    asset-url("background-ribbons/background-gradient-01.png");
+  background-size: cover;
+  height: 100vh;
+}
+
+.white-box {
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: 0 10px 6px -6px #909090a6;
+  padding: 21px 36px;
+  margin-top: 40px;
+  border-radius: 3px;
+  h1 {
+    font-size: 1.5em;
+    margin: 0;
+  }
+  h2 {
+    font-size: 0.8em;
+    margin-bottom: 14px;
+  }
+  h4 {
+    font-size: 0.9em;
+  }
+  .fas {
+    margin-right: 10px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+    padding: 0 24px;
+  }
+  a {
+    color: black;
+  }
+}
+.apply-btn {
+  margin-top: 40px;
+  color: white;
+  background-color: $purple;
+  display: block;
+  padding: 12px;
+  font-size: 2em;
+  border-radius: 3px;
+}
+
+.btn-hover {
+  border-color: $purple;
+  color: #fff;
+  background-image: -webkit-linear-gradient(45deg, $green 50%, transparent 50%);
+  background-image: linear-gradient(45deg, $green 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: background 500ms ease-in-out;
+  transition: background 500ms ease-in-out;
+}
+
+.btn-hover:hover {
+  background-position: 0;
+  color: white;
+}
+
+.last-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 500px) {
+  .container-show {
+    text-align: center;
+  }
+  .last-box {
+    flex-direction: column;
+  }
+}
