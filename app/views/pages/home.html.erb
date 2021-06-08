@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="whole-page-container">
+  <div class="top-popout-banner">
+  <%= image_tag "popout-text/findajobgetexp-01.png", :class => "find-a-gig"%>
+  </div>
+  <div class="cta-banner">
+    <div class="green-background">
+      <%= image_tag "exp-app-mockup-phone/app-mockup-gradient-with-daggers-01.png", :class => "app-mockup"%>
+      <div class="central-cta">
+        <%= link_to "Find Gigs", jobs_path, class: "cta-purple-button" %>
+        <div class="cta-explainer">
+          <h1>explainer</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="top-gigs-banner">
+    <div class="green-background">
+      <h1>top-gigs-banner</h1>
+    </div>
+  </div>
+  <div class="companies-we-love-banner">
+    <div class="green-background">
+      <h1>companies-we-love-banner</h1>
+    </div>
+  </div>
+</div>
