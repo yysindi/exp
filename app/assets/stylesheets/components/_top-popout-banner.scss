@@ -1,0 +1,22 @@
+.top-popout-banner {
+  background: url(background-ribbons/background-gradient-01.png) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: static;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin-bottom: 10vh;
+}
+
+// find-a-gig popout image
+.find-a-gig {
+  display: flex;
+  height: 90vh;
+  margin: auto;
+  padding-top: 10px;
+  padding-right: 100px;
+  justify-content: center;
+}
+

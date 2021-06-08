@@ -1,0 +1,28 @@
+// $green = #00EFCA
+// $yellow: #FDF200
+// $pink: #FF85EA
+// $purple: #7B61F8
+
+.green-background {
+  background-color: #00EFCA;
+  height: 80vh;
+  width: 100vw;
+}
+
+.app-mockup {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: absolute;
+  top: 105vh;
+  left: 65vw;
+}
+
+.jagged-bolts {
+  display: flex;
+  height: 70vh;
+  justify-content: center;
+  position: absolute;
+  top: 110vh;
+  left: 35vw;
+}
