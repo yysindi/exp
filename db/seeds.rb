@@ -33,8 +33,8 @@ start_date = ['2021-07-02', '2021-07-02', '2021-07-02', '2021-07-02', '2021-07-0
 end_date = ['2021-07-12', '2021-07-12', '2021-07-12', '2021-07-12', '2021-07-12', '2021-07-12', '2021-07-12']
 
 
-
 title = ["Full stack developer", "Product design Intern", "Junior analyst", "HR Intern", "Ruby on rails developer", "Business development intern", "Junior business analyst"]
+
 
 logo = ['https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/7e71a9fd7c05ab2be421996da6d57199',
 'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/f04e20756d6763c92e06eeb93bff15e6',
