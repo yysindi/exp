@@ -22,7 +22,6 @@ about = ['A great company with big ambitions to expend in the IT consultancy fie
 
 company_name = ['Beyond Retail', 'Crown commertial service', 'Frasers group', 'Atradius', 'OP', 'p', 'Merkle' ]
 
-
 paid = [0,1,1,1,1,0,0] 
 
 accepting_applications = [1,1,1,1,1,1,1]
@@ -32,8 +31,6 @@ compensation = [0, 150, 100, 200, 350, 0, 0]
 start_date = ['2021-07-02', '2021-07-02', '2021-07-02', '2021-07-02', '2021-07-02', '2021-07-02', '2021-07-02']
 
 end_date = ['2021-07-12', '2021-07-12', '2021-07-12', '2021-07-12', '2021-07-12', '2021-07-12', '2021-07-12']
-
-
 
 title = ["Full stack developer", "Product design Inten", "Junior analyst", "HR Intern", "Ruby on rails developer", "Business development intern", "Junior business analyst"]
 
@@ -48,6 +45,7 @@ logo = ['https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/7e71a9fd7c05ab2be42
 industry = ['Technology', 'Marketing', 'Fintech', 'Education', 'Technology', 'Technology', 'Fintech']
 
 description = ['We are looking for a talented Graduate/Junior Frontend Developer who will play a significant role in creating best in class interfaces and outstanding interactive consumer apps. Whilst you may not have a lot of industry experience you will be able to demonstrate a passionate interest in rich, creative interface design and the latest technologies and development processes. You are a team player, can communicate ideas articulately and a fervent desire to learn quickly.',
+
 'As a New Product Innovation (NPI) graduate, you’ll be sketching, prototyping, testing, failing and refining to deliver the high standards of product development Dyson is known for, working on ideas that will disrupt and transform markets.
 You’ll need to be thoroughly hands-on, practically applying your technical knowledge with a creative flair to ensure that all engineering problems are resolved thoroughly.',
 'Our Junior Commercial Analyst will have contact with most departments in the business on a weekly basis including our warehouse, transport team, quality team and our Outbases, so we need someone who can communicate with people on all levels in a friendly and professional way. You will report to the Commercial Manager and Senior Commercial Analyst and work very closely with our whole Commercial team to make sure we always have a full understanding of the cost areas and P&L.',
@@ -66,8 +64,6 @@ location = [ 'London', 'Remote', 'Remote', 'Brighton', 'Nottingham', 'London', '
 
 counter = 0
 
-
-​
 7.times do
   job = Job.new(title: title[counter] ,description: description[counter],location:location[counter], about: about[counter], website: website[counter], industry: industry[counter], logo: logo[counter], paid: paid[counter], compensation: compensation[counter], start_date: start_date[counter], end_date: end_date[counter], accepting_applications: accepting_applications[counter], company_name: company_name[counter])
   job.save
