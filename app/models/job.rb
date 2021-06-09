@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
   has_many :users, through: :applications
-  has_many :applications
+  has_many :applications, dependent: :destroy
   has_many :exp_scores
 
   validates :industry, presence: true
