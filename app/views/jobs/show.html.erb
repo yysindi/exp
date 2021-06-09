@@ -31,15 +31,18 @@
         </div>
       </div>
       <div class="col-lg-3 col-sm-12">
-          <% if @job.accepting_applications %>
-          <a class="btn apply-btn btn-hover" href="#">Apply</a>
+        <% if @job.accepting_applications %>
+          <%= link_to "#{current_user.applications.find_by(job_id: @job.id) ? "Applied!" : "Apply"}",
+            job_applications_path(job_id: @job.id), 
+            method: :post,
+            class:"btn apply-btn btn-hover #{current_user.applications.find_by(job_id: @job.id) ? "disabled" : "canApply"}" %>
         <% else %>
           <a class="btn apply-btn disabled" href="#">Closed</a>
         <% end %>
         <div class="white-box">
           <%= image_tag @job.logo %>
           <h4> <%= @job.company_name %></h4>
-          <p> <b> About the clan:</b> <%= @job.about %></p>
+          <p><b>About the clan:</b> <%= @job.about %></p>
           <p><%= link_to "Company website", @job.website, target: '_blank' %></p>
         </div>
       </div>
