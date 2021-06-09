@@ -22,9 +22,9 @@ about = ['A great company with big ambitions to expend in the IT consultancy fie
 
 company_name = ['Beyond Retail', 'Crown commertial service', 'Frasers group', 'Atradius', 'OP', 'p', 'Merkle' ]
 
-paid = [0,1,1,1,1,0,0] 
+paid = [true,false,false,false,false,true,true] 
 
-accepting_applications = [1,1,1,1,1,1,1]
+accepting_applications = [true,true,true,true,true,true,true]
 
 compensation = [0, 150, 100, 200, 350, 0, 0]
 
@@ -60,8 +60,20 @@ location = [ 'London', 'Remote', 'Remote', 'Brighton', 'Nottingham', 'London', '
 counter = 0
 
 7.times do
-  job = Job.new(title: title[counter] ,description: description[counter],location:location[counter], about: about[counter], website: website[counter], industry: industry[counter], logo: logo[counter], paid: paid[counter], compensation: compensation[counter], start_date: start_date[counter], end_date: end_date[counter], accepting_applications: accepting_applications[counter], company_name: company_name[counter])
-  job.save
+  job = Job.new(title: title[counter] ,
+    description: description[counter],
+    location:location[counter], 
+    about: about[counter], 
+    website: website[counter], 
+    industry: industry[counter], 
+    logo: logo[counter], 
+    paid: [true,false].sample, 
+    compensation: compensation[counter], 
+    start_date: start_date[counter],
+    end_date: end_date[counter], 
+    accepting_applications: accepting_applications[counter], 
+    company_name: company_name[counter])
+  job.save!
   counter += 1
 end
 
