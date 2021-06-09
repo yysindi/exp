@@ -1,2 +1,48 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<div class="bg-image">
+  <div class="container container-show">
+    <%# <%= image_tag 'background-ribbons/background-gradient-01.png', class: "bg-wave" %>
+    <div class="row">
+      <div class="col-lg-8 col-sm-12">
+        <div class="white-box">
+          <h1><%= @job.title %></h1>
+        </div>
+        <div class="white-box">
+          <h2>The mission:</h2>
+          <p><%= @job.description %></p>
+        </div>
+        <div class="white-box">
+          <h2>Additional info:</h2>
+          <div class="last-box">
+            <div class="job-info">
+              <% if @job.paid %>
+              <p><%= icon('fas', 'money-bill') %>Loot: £<%= @job.compensation %> per week</p>
+              <p><%= icon('fas', 'arrow-up') %>Level Up: 200 Marketing</p>
+              <% end %>
+            </div>
+            <div class="job-info">
+              <p>Start: <%= @job.start_date %></p>
+              <p><%= icon('fas', 'star') %><%= @job.industry %> </p>
+            </div>
+            <div class="job-info">
+            <p>End: <%= @job.end_date %></p>
+              <p><%= icon('fas', 'map-marker') %> <%= @job.location %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-12">
+          <% if @job.accepting_applications %>
+          <a class="btn apply-btn btn-hover" href="#">Apply</a>
+        <% else %>
+          <a class="btn apply-btn disabled" href="#">Closed</a>
+        <% end %>
+        <div class="white-box">
+          <%= image_tag @job.logo %>
+          <h4> <%= @job.company_name %></h4>
+          <p> <b> About the clan:</b> <%= @job.about %></p>
+          <p><%= link_to "Company website", @job.website, target: '_blank' %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
