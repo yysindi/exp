@@ -2,16 +2,15 @@ class ApplicationsController < ApplicationController
   def create
     @job = Job.find(params[:job_id])
     @user = current_user
-    @application = Application.new #   (application_params)
+    @application = Application.new
     @application.date_applied = Time.now
     @application.job = @job
     @application.user = @user
     @applied = @user.applications.find_by(job_id: @job.id)
-    raise
     if @application.save
-       redirect_to job_path(@job)
-      # flashes[:notice] = "Applied!"
-      # render "jobs/show"
+      @applied = true
+      flash[:notice] = "Applied!"
+      redirect_to job_path(@job)
     else
       render "jobs/show"
     end
@@ -19,7 +18,4 @@ class ApplicationsController < ApplicationController
 
   private
 
-  # def application_params
-  #   params.require(:application).permit(:status, :date_applied)
-  # end
 end

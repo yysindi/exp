@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'users/:id', to: 'users#show'
   root to: 'pages#home'
-  post 'apply', to: 'pages#apply'
+  # post 'apply', to: 'pages#apply'
   resources :jobs, only: [:index , :show] do 
     resources :applications, only: [:create]
   end 
