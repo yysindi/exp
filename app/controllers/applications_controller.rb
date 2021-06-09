@@ -6,9 +6,12 @@ class ApplicationsController < ApplicationController
     @application.date_applied = Time.now
     @application.job = @job
     @application.user = @user
+    @applied = @user.applications.find_by(job_id: @job.id)
+    raise
     if @application.save
-      # redirect_to job_path(@job)
-      render :show
+       redirect_to job_path(@job)
+      # flashes[:notice] = "Applied!"
+      # render "jobs/show"
     else
       render "jobs/show"
     end
