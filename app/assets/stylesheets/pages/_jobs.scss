@@ -1,0 +1,73 @@
+body {
+background-image: linear-gradient(
+  rgba(255, 255, 255, 0.5),
+  rgba(255, 255, 255, 0.5)
+), asset-url('background-ribbons/background-gradient-01.png'); 
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.apply-btn-jobs{
+  background: $green;
+  color: white;
+
+  &:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(rgb(116, 112, 112), 0.1);
+  }
+
+  &:active{
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(rgb(116, 112, 112), 0.1);
+}
+}
+
+.card-job {
+  border-radius: 8px;
+  transition: all .2s ease-in-out;
+  width: 31%;
+  margin: 1%;
+
+  &:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  }
+
+  @media (max-width: 968px) {
+    width: 48%;
+
+  }
+}
+
+.flex-row{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.job-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  border: none;
+  font: italic;
+}
+
+.company-name {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  border: none;
+  font: italic;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  border: none;
+}
+
