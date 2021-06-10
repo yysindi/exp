@@ -1,14 +1,28 @@
+<div class="container d-flex justify-content-center ">
+  <div class="form-search">
+    <%= form_tag jobs_path, method: :get, class:"d-flex m-3" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a Company/Role"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary search-btn ml-3 rounded" %>
+    <% end %>
+  </div>
+</div>
 
 <div class="container">
     <div id="jobs" class = "flex-row">
       <% @jobs.each do |job| %>
             <div class="card d-flex card-job">
                 <%= image_tag job.logo %>
-                <div class="card-body mb-3">
-                  <h4 class="card-title job-title"> <%=job.title%> </h4>
-                  <h6 class="card company-name"> <%=job.company_name%> </h6>
-                  <p class="card description"> <%=job.description%></p>
-                  <%= link_to "Apply", job_path(job), class: "btn btn-success d-flex justify-content-center apply-btn-jobs"%>
+                <div class="card-body">
+                  <p class = "title-job"> <%= icon('fas', 'crown') %> <%=job.title%> </p>
+                  <p> <%= icon('fas', 'building') %> <%=job.company_name%> </p>
+                  <p> <%= icon('fas', 'money-bill') %> <%=job.compensation == 0 ? "Unpaid":job.compensation %></p>
+                  <p> <%= icon('fas', 'map-marker') %> <%=job.location%> </p>
+                  <p> <%= icon('fas', 'industry') %> <%=job.industry%> </p>
+                  <%= link_to "Find out more", job_path(job), class: "btn btn-success d-flex justify-content-center apply-btn-jobs"%>
                 </div>
             </div>
       <% end %>

@@ -7,5 +7,5 @@ class Job < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: 20 }
   validates :website, presence: true
-  validates :paid, presence: true
+  # validates :paid, presence: true
 end

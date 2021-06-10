@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   patch 'restaurants/:id', to: 'restaurants#update'
   root to: 'pages#home'
-
+   # post 'apply', to: 'pages#apply'
   resources :jobs, only: [:index , :show] do
     resources :applications, only: [:create]
   end
