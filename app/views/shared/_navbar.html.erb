@@ -14,9 +14,6 @@
         <li class="nav-item">
           <%= link_to "Find Gigs", jobs_path, class: "nav-link", id: "gigs-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Profile", "#", class: "nav-link", id: "profile-link" %>
-        </li>
         <% if user_signed_in? %>
           <% if current_user.applications.any? %>
             <%= link_to root_path, class: "navbar-bell-link" do %>
@@ -29,10 +26,15 @@
           <% end %>
         <% end %>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/nouwasy", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% @user = User.find(current_user.id) %>
+          <% if @user.photo.present? %>
+          <%= cl_image_tag @user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+          <%= image_tag 'blank-profile-picture.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item", id: "action1-link" %>
-            <%= link_to "Another action", "#", class: "dropdown-item", id: "action2-link" %>
+            <%= link_to "View Profile", user_path(@user), class: "dropdown-item", id: "action1-link" %>
+            <%= link_to "Edit Profile", edit_user_path(@user), class: "dropdown-item", id: "action2-link" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item", id: "logout-link" %>
           </div>
         </li>
