@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
   get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
