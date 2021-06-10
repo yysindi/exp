@@ -9,7 +9,6 @@ class ApplicationsController < ApplicationController
     @applied = @user.applications.find_by(job_id: @job.id)
     if @application.save
       @applied = true
-      flash[:notice] = "Applied!"
       redirect_to job_path(@job)
     else
       render "jobs/show"
