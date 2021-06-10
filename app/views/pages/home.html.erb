@@ -19,31 +19,44 @@
     <div class="green-background">
       <%= image_tag "background-ribbons/floating-balls-01.png", :class => "floating-balls"%>
       <div class="top-gigs-box">
-          <h1>Top Gigs</h1>
-          <%= link_to jobs_path, class: "top-job-box", id:"top-job-box-01" do %>
-            <div class="top-job-inner" id="top-job-leftmost-inner">
-              <%= image_tag "color-fake-logos/earth-2.png", class: "top-gigs-logo"%>
-            </div>
-            <div class="top-job-inner" id="top-job-middle-inner">
-              <div class="top-job-inner-upper-box">
-              <h3 class="weighted-h3">Earth 2.0</h3>
+          <h1 id="top-gigs-title">Latest Gigs</h1>
+          <% i = 0 %>
+          <%= 3.times do %>
+            <%= link_to jobs_path, class: "top-job-box", id:"top-job-box-01" do %>
+              <div class="top-job-inner" id="top-job-leftmost-inner">
+                <%= image_tag @jobs[i].logo, class: "top-gigs-logo"%>
               </div>
-              <div class="top-job-inner-lower-box">
-              <h3 class="weightless-h3">Marketing Intern</h3>
+              <div class="top-job-inner" id="top-job-middle-inner">
+                <div class="top-job-inner-upper-box">
+                <h3 class="weighted-h3"><%= @jobs[i].company_name %></h3>
+                </div>
+                <div class="top-job-inner-lower-box">
+                <h3 class="weightless-h3"><%= @jobs[i].title %></h3>
+                </div>
               </div>
-            </div>
-            <div class="top-job-inner" id="top-job-rightmost-inner">
-              <div class="top-job-inner-upper-box">
-              <h3 class="weighted-h3">£350 p.w.</h3>
+              <div class="top-job-inner" id="top-job-rightmost-inner">
+                <div class="top-job-inner-upper-box">
+                <h3 class="weighted-h3">£<%= [300, 350, 400, 450, 500].sample %> p.w.</h3>
+                </div>
+                <div class="top-job-inner-lower-box">
+                <h3 class="weightless-h3"><%= @jobs[i].location %></h3>
+                </div>
               </div>
-              <div class="top-job-inner-lower-box">
-              <h3 class="weightless-h3">London</h3>
-              </div>
-            </div>
+            <% end %>
+            <% i += 1 %>
           <% end %>
-          <%= link_to jobs_path, class: "top-job-box", id:"top-job-box-02" do %>
-            <div class="top-job-inner" id="top-job-leftmost-inner">
-              <%= image_tag "color-fake-logos/atica.png", class: "top-gigs-logo"%>
+      </div>
+    </div>
+  </div>
+  <div class="companies-we-love-banner">
+    <div class="green-background">
+    </div>
+  </div>
+</div>
+
+          <%#= link_to jobs_path, class: "top-job-box", id:"top-job-box-02" do %>
+            <!-- <div class="top-job-inner" id="top-job-leftmost-inner">
+              <%#= image_tag "color-fake-logos/atica.png", class: "top-gigs-logo"%>
             </div>
             <div class="top-job-inner" id="top-job-middle-inner">
               <div class="top-job-inner-upper-box">
@@ -60,11 +73,11 @@
               <div class="top-job-inner-lower-box">
               <h3 class="weightless-h3">Stockholm</h3>
               </div>
-            </div>
-          <% end %>
-          <%= link_to jobs_path, class: "top-job-box", id:"top-job-box-03" do %>
-            <div class="top-job-inner" id="top-job-leftmost-inner">
-              <%= image_tag "color-fake-logos/kanba.png", class: "top-gigs-logo"%>
+            </div> -->
+          <%# end %>
+          <%#= link_to jobs_path, class: "top-job-box", id:"top-job-box-03" do %>
+           <!--  <div class="top-job-inner" id="top-job-leftmost-inner">
+              <%#= image_tag "color-fake-logos/kanba.png", class: "top-gigs-logo"%>
             </div>
             <div class="top-job-inner" id="top-job-middle-inner">
               <div class="top-job-inner-upper-box">
@@ -81,13 +94,5 @@
               <div class="top-job-inner-lower-box">
               <h3 class="weightless-h3">Amsterdam</h3>
               </div>
-            </div>
-          <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="companies-we-love-banner">
-    <div class="green-background">
-    </div>
-  </div>
-</div>
+            </div> -->
+          <%# end %>

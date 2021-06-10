@@ -36,7 +36,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 8vh;
+  padding-bottom: 2vh;
 }
 
 .top-job-box {
@@ -49,6 +49,7 @@
   border-color: #CDCDCD;
   height: 25%;
   color: black !important;
+  margin-top: 25px !important;
 }
 
 .top-job-box:hover {
@@ -64,13 +65,17 @@
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+#top-gigs-title {
+  margin-bottom: 20px;
+}
+
 #top-job-box-01 {
   margin-top: 10px;
   background-image: linear-gradient(
-      rgba(255, 255, 255, 0.90),
-      rgba(255, 255, 255, 0.90)
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.9)
     ),
-  asset-url("color-fake-logos/earth-2.png");
+  asset-url("background-ribbons/background-gradient-01.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

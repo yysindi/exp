@@ -2,7 +2,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+    @jobs = Job.last(3)
   end
+
 
   # def apply
   #   @job = Job.find(params[:job_id])
