@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @exp_scores = @user.exp_scores.group(:industry)
   end
 
   def edit

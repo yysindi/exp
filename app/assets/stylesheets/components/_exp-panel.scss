@@ -1,0 +1,47 @@
+.exp-panel {
+  width: 260px;
+  border: 2px solid black;
+  border-radius: 21px;
+  padding: 28px 18px;
+  text-align: center;
+  background: rgb(255, 136, 228);
+  background: linear-gradient(rgba(255, 136, 228, 0.5), rgba(253, 242, 0, 0.5));
+}
+.exp-img {
+  border-radius: 50%;
+  max-width: 48%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.progress-bar {
+  height: 24px;
+  position: relative;
+  background: #d8d8d8;
+  border-radius: 25px;
+  // padding: 5px;
+  span {
+    // display: block;
+    // height: 100%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: $purple;
+    color: transparent;
+    position: relative;
+    font-size: 12px;
+    line-height: 2;
+    animation: loadBar 1s linear 1 normal forwards;
+  }
+}
+
+@keyframes loadBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 54%;
+    color: $white;
+  }
+}
