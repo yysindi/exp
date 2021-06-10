@@ -1,6 +1,33 @@
-<h1><%= @user.email %></h1>
-<%= image_tag(user.profile_img) %>
+<div class="profile-card-border-radius card m-4">
+  <div class="profile-background">
+    Background
+  </div>
+  <div class="flex-row d-flex justify-content-between mx-5 prof-position">
+    <div  style="width: 40%;">
+      <% if @user.photo.present? %>
+      <%= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :fill, class: "profile-img" %>
+      <% else %>
+      <%= image_tag 'blank-profile-picture.jpg', height: 200, width: 200, crop: :fill, class: "profile-img" %>
+      <% end %>
+       <div style="margin-top: 120px;">
+        <h3> <%= @user.name %></h3>
+        <h6> <%= @user.desired_industry%> </h6>
+        <p> <%= @user.profile_description %> </p>
+        <p><i class="fab fa-linkedin"></i><a href="https://<%= @user.linked_in %>"><%= @user.linked_in%></a> </p>
+        <p> <i class="fab fa-twitter"></i> <a href="https://<%= @user.twitter_url %>"><%= @user.twitter_url %></a> </p>
+      </div>
+    </div>
+    <div>
+    <%= image_tag "exp-app-mockup-phone/app-mockup-gradient-with-daggers-01.png", class: "profile-exp-points prof-position"%>
+    </div>
+  </div>
 
-<p>Find me in app/views/users/show.html.erb</p>
+  <% if @user == (current_user) %>
+  <%= link_to edit_user_path(@user) do %>
+      <i class="fas fa-edit edit-bottom-right" style="font-size: 20px; text-align: right;"></i>
+  <% end %>
+  <% end %>
 
-<%= link_to "Edit Profile", jobs_path %>
+
+  </div>
+

@@ -31,7 +31,16 @@
   justify-content: space-between;
 }
 
+.form-btn-100 {
+  width: 100%;
+}
+
 .sign-up-btn {
   width: 100px;
 }
 
+.edit-bottom-right {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
