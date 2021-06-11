@@ -17,10 +17,9 @@
         <p> <i class="fab fa-twitter"></i> <a href="https://<%= @user.twitter_url %>"><%= @user.twitter_url %></a> </p>
       </div>
     </div>
-    <div>
+    <%# <div>
     <%= image_tag "exp-app-mockup-phone/app-mockup-gradient-with-daggers-01.png", class: "profile-exp-points prof-position"%>
-    </div>
-  </div>
+    <%# </div> %>
     <div class="exp-panel">
      <%= image_tag "exp-logo/logo-01.png", class:"img-fluid" %>
       <% if @user.photo.present? %>
@@ -38,6 +37,7 @@
         <% end %>
       </div>
     </div>
+  </div>
 
   <% if @user == (current_user) %>
   <%= link_to edit_user_path(@user) do %>
