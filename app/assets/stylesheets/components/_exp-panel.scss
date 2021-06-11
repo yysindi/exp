@@ -1,11 +1,12 @@
 .exp-panel {
-  width: 260px;
+  width: 300px;
   border: 2px solid black;
   border-radius: 21px;
   padding: 28px 18px;
   text-align: center;
   background: rgb(255, 136, 228);
   background: linear-gradient(rgba(255, 136, 228, 0.5), rgba(253, 242, 0, 0.5));
+  margin: 25px auto;
 }
 .exp-img {
   border-radius: 50%;
@@ -41,7 +42,7 @@
     width: 0;
   }
   100% {
-    width: 54%;
+    width: var(--to-width);
     color: $white;
   }
 }
