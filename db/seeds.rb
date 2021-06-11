@@ -1,12 +1,13 @@
 
 p 'Clearing database'
 
+ExpScore.destroy_all
 Application.destroy_all
 Job.destroy_all
 User.destroy_all
 
 puts "creating users..."
-​user_first = User.create(name: 'Jared', email: 'jared@test.com', password: '123456', profile_description: "recent psychology graduate looking to get a job using react", profile_img:"https://kitt.lewagon.com/placeholder/users/monsieurpaillard", linked_in: "https://www.linkedin.com/in/jared/", desired_industry: "Finance", twitter_url:"https://twitter.com/royalfamily")
+user_first = User.create(name: 'Jared', email: 'jared@test.com', password: '123456', profile_description: "recent psychology graduate looking to get a job using react", profile_img:"https://kitt.lewagon.com/placeholder/users/monsieurpaillard", linked_in: "https://www.linkedin.com/in/jared/", desired_industry: "Finance", twitter_url:"https://twitter.com/royalfamily")
 user_second = User.create(name: 'Keith', email: 'keith@test.com', password: '123456', profile_description: "recent psychology graduate looking to get a job using ruby", profile_img:"https://kitt.lewagon.com/placeholder/users/monsieurpaillard", linked_in: "https://www.linkedin.com/in/keith/", desired_industry: "technology", twitter_url:"https://twitter.com/nytimes")
 
 puts "creating jobs..."
