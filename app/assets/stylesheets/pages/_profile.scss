@@ -15,6 +15,7 @@
   width: 100%;
   background-image: asset-url("space-invaders.png");
   height: 300px;
+  border-radius: 8px;
 }
 
 .profile-card-border-radius {
@@ -25,4 +26,8 @@
   width: 580px;
   height: 400px;
   top: -100px;
+}
+
+.jobs-profile {
+  margin-bottom: 80px;
 }

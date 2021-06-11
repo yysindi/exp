@@ -24,7 +24,7 @@
             <div class="job-info">
               <% if @job.paid %>
               <p><%= icon('fas', 'money-bill') %>Loot: £<%= @job.compensation %> per week</p>
-              <p><%= icon('fas', 'arrow-up') %>Level Up: 200 Marketing</p>
+              <p><%= icon('fas', 'arrow-up') %>Level Up: <%= @exp_score.sum(:exp_value) %>  <%= @job.industry %> </p>
               <% end %>
             </div>
           </div>
