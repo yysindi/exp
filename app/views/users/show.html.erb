@@ -9,7 +9,7 @@
       <%= image_tag 'blank-profile-picture.jpg', height: 200, width: 200, crop: :fill, class: "profile-img" %>
       <% end %>
        <div style="margin-top: 120px;">
-        <h3> <%= @user.name %></h3>
+        <h3><%= @user.name.present? ? @user.name : "Octopus3000" %> <%= %></h3>
         <h6> <%= @user.desired_industry%> </h6>
         <p> <%= @user.profile_description %> </p>
         <p><i class="fab fa-linkedin"></i><a href="https://<%= @user.linked_in %>"><%= @user.linked_in%></a> </p>
@@ -19,21 +19,19 @@
     <%# <div>
     <%= image_tag "exp-app-mockup-phone/app-mockup-gradient-with-daggers-01.png", class: "profile-exp-points prof-position"%>
     <%# </div> %>
-    <div class="exp-panel">
-     <%= image_tag "exp-logo/logo-01.png", class:"img-fluid" %>
-      <% if @user.photo.present? %>
-      <%= cl_image_tag @user.photo.key, class: "exp-img" %>
-      <% else %>
-      <%= image_tag 'blank-profile-picture.jpg', class: "exp-img" %>
-      <% end %>
+    <div class="m-5 exp-panel profile-exp-points prof-position">
+      <%= image_tag "exp-logo/logo-01.png", class:"img-fluid" %>
+      <% completed_jobs = @applications.select {|application| application.job.completed == true} %>
+      <h1 class="mt-4"style="font-size: 80px;"><%= completed_jobs.count  %> </h1>
       <div class="bars">
-        <p>Total EXP:</p>
+        <p class='my-4'>Total EXP:</p>
         <% @exp_scores.sum(:exp_value).each do |key, value| %>
-          <p><%= key %></p>
-          <div class="progress-bar">
+          <p style="font-size: 20px;"><%= key %></p>
+          <div class="progress-bar mb-3">
             <span class="level" style="--to-width: <%= ((value/10).to_s.concat("%")) %>"><%= value %></span>
           </div>
         <% end %>
+
       </div>
     </div>
   </div>
@@ -73,4 +71,3 @@
     <% end %>
   </div>
   </div>
-</div>
