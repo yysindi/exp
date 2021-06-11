@@ -10,5 +10,6 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @exp_score = @job.exp_scores
   end
 end
