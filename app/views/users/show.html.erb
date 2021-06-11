@@ -1,6 +1,5 @@
 <div class="profile-card-border-radius card m-4">
   <div class="profile-background">
-    Background
   </div>
   <div class="flex-row d-flex justify-content-between mx-5 prof-position">
     <div  style="width: 40%;">
@@ -27,7 +26,34 @@
       <i class="fas fa-edit edit-bottom-right" style="font-size: 20px; text-align: right;"></i>
   <% end %>
   <% end %>
+  </div>
 
-
+  <div class="profile-card-border-radius card m-4">
+    <h4 class="m-4">Pending applications:</h4>
+    <div class="jobs-profile d-flex flex-row justify-content-start flex-wrap">
+    <% @applications.each do |application| %>
+      <div class="card d-flex card-job" style="width:200px;height:200px;">
+                <%= image_tag application.job.logo %>
+                <div class="card-body">
+                  <p style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=application.job.title%> </p>
+                </div>
+            </div>
+    <% end %>
+  </div>
+  </div>
+  <div class="profile-card-border-radius card m-4">
+    <h4 class="m-4">Accepted applications:</h4>
+    <div class="jobs-profile d-flex flex-row justify-content-start flex-wrap">
+    <% @applications.each do |application| %>
+      <% if application.status == "Accepted" %>
+      <div class="card d-flex card-job" style="width:200px;height:200px;">
+                <%= image_tag application.job.logo %>
+                <div class="card-body">
+                  <p style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=application.job.title%> </p>
+                </div>
+            </div>
+      <% end %>
+    <% end %>
+  </div>
   </div>
 
