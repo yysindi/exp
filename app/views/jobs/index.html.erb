@@ -1,16 +1,27 @@
 <div class="container d-flex justify-content-center ">
   <div class="form-search">
-    <%= form_tag jobs_path, method: :get, class:"d-flex m-3" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a Company/Role"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary search-btn ml-3 rounded" %>
+    
+        <%= simple_form_for :search, url: search_path, 
+        method: :post, remote: true  ,id:"search-form", html:{class:"m-3 w-100"} do |f| %>
+         <div class = "d-flex ">
+            <%= f.input :query, input_html: {class: "form-control", value: params.dig(:search, :query) },
+                label: false,
+              placeholder: "Find a Company/Role"
+            %>
+            <%= f.input :industry, collection: Job.pluck(:industry).uniq.sort, prompt: 'Select Industry',selected: params.dig(:search,:industry), label: false %>
+            <%= f.submit  "Search", class: "btn btn-primary search-btn ml-3 align-self-start" %>
+        </div>
+      <div class = "d-flex align-items-start">
+          <p> <strong> Filters : </strong></p>
+        <%= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false, input_html: {value: params.dig(:search, :paid), class: 'paid_btn'}, label: 'paid' %>
+        <%= f.input :location, as: :boolean, checked_value: true, unchecked_value: false, input_html: {value: params.dig(:search, :location) == "true", class: 'remote_btn ml'}, label: 'remote' %>
+      </div>
     <% end %>
   </div>
 </div>
-
+<div>
+  <p class = "d-flex justify-content-center" > Your search has <%= @jobs.count %> results</p>
+</div>
 <div class="container">
     <div id="jobs" class = "flex-row">
       <% @jobs.each do |job| %>
