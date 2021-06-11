@@ -14,18 +14,18 @@
           <h2>Additional info:</h2>
           <div class="last-box">
             <div class="job-info">
-              <% if @job.paid %>
-              <p><%= icon('fas', 'money-bill') %>Loot: £<%= @job.compensation %> per week</p>
-              <p><%= icon('fas', 'arrow-up') %>Level Up: 200 Marketing</p>
-              <% end %>
-            </div>
-            <div class="job-info">
               <p>Start: <%= @job.start_date %></p>
               <p><%= icon('fas', 'star') %><%= @job.industry %> </p>
             </div>
             <div class="job-info">
             <p>End: <%= @job.end_date %></p>
               <p><%= icon('fas', 'map-marker') %> <%= @job.location %></p>
+            </div>
+            <div class="job-info">
+              <% if @job.paid %>
+              <p><%= icon('fas', 'money-bill') %>Loot: £<%= @job.compensation %> per week</p>
+              <p><%= icon('fas', 'arrow-up') %>Level Up: 200 Marketing</p>
+              <% end %>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
           <%= link_to "#{current_user.applications.find_by(job_id: @job.id) ? "Applied!" : "Apply"}",
             job_applications_path(job_id: @job.id), 
             method: :post,
-            class: "cta-purple-button-jobs-show #{current_user.applications.find_by(job_id: @job.id) ? "disabled" : "canApply"}" %></button>
+            class: "btn cta-purple-button-jobs-show #{current_user.applications.find_by(job_id: @job.id) ? "disabled" : "canApply"}" %></button>
         <% else %>
           <a class="btn apply-btn disabled" href="#">Closed</a>
         <% end %>

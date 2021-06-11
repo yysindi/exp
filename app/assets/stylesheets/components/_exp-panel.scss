@@ -1,5 +1,5 @@
 .exp-panel {
-  width: 260px;
+  width: 290px;
   border: 2px solid black;
   border-radius: 21px;
   padding: 28px 18px;
@@ -41,7 +41,7 @@
     width: 0;
   }
   100% {
-    width: 54%;
+    width: var(--to-width);
     color: $white;
   }
 }

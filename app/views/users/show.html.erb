@@ -33,7 +33,7 @@
         <% @exp_scores.sum(:exp_value).each do |key, value| %>
           <p><%= key %></p>
           <div class="progress-bar">
-            <span class="level"><%= value %></span>
+            <span class="level" style="--to-width: <%= ((value/10).to_s.concat("%")) %>"><%= value %></span>
           </div>
         <% end %>
       </div>
@@ -44,7 +44,4 @@
       <i class="fas fa-edit edit-bottom-right" style="font-size: 20px; text-align: right;"></i>
   <% end %>
   <% end %>
-
-
-  </div>
-
+</div>
