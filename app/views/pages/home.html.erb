@@ -6,18 +6,24 @@
     <div class="green-background">
       <%= image_tag "exp-app-mockup-phone/app-mockup-gradient-with-daggers-01.png", :class => "app-mockup"%>
       <div class="central-cta">
-        <%= link_to "Find Gigs", jobs_path, class: "cta-purple-button" %>
         <div class="cta-explainer">
           <h1>Catch 22 for Under-30s</h1>
           <p class="paragraph-normal-font">Can't start a career without experience, yet can't get experience without a job?</p>
           <p class="paragraph-heavy-font">Complete short gigs with leading startups for EXP!</p>
+          <%#= link_to "Find Gigs", jobs_path, class: "cta-purple-button" %>
+        </div>
+        <div class="cta-explainer-02">
+          <h1>Catch 22 for Under-30s</h1>
+          <p class="paragraph-normal-font">Can't start a career without experience, yet can't get experience without a job?</p>
+          <p class="paragraph-heavy-font">Complete short gigs with leading startups for EXP!</p>
+          <%#= link_to "Find Gigs", jobs_path, class: "cta-purple-button" %>
         </div>
       </div>
     </div>
   </div>
   <div class="top-gigs-banner">
     <div class="green-background">
-      <%= image_tag "background-ribbons/floating-balls-01.png", :class => "floating-balls"%>
+      <%= image_tag "background-ribbons/floating-balls-01.png", :class => "floating-balls", id: "lower-floating-balls"%>
       <div class="top-gigs-box">
           <h1 id="top-gigs-title">Latest Gigs</h1>
           <% i = 0 %>

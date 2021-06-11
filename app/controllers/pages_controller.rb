@@ -5,7 +5,6 @@ class PagesController < ApplicationController
     @jobs = Job.last(3)
   end
 
-
   # def apply
   #   @job = Job.find(params[:job_id])
   #   @user = current_user
