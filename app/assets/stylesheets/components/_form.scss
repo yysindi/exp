@@ -7,10 +7,10 @@
 }
 
 .sign-up-background {
-  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.2)), asset-url('background-ribbons/eggs-whirl-01.png');
-  background-size: stretch;
+  background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.2)), url(asset_path("background-ribbons/eggs-whirl-01.png")) no-repeat center center;;
+  background-size: cover;
   margin-top: -1rem;
-
+  min-height: 100vh;
 }
 
 .form-inputs {
