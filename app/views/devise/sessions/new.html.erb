@@ -1,33 +1,32 @@
 <div class="py-5 sign-up-background">
-<div class="form-card">
-<div class="d-flex form-compartment">
-<div>
-<h2>Log in</h2>
+  <div class="form-card">
+    <div class="d-flex form-compartment">
+      <div>
+      <h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+          <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "current-password" } %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="form-actions d-flex mb-2">
+          <%= f.button :submit, "Log in", class: "btn btn-primary form-btn" %>
+        </div>
+        <%= render "devise/shared/links" %>
+        <% end %>
+      </div>
+      <div style="width: 70%" >
+        <%= image_tag "exp-logo/logo-01.png", class: 'form-logo mb-2' %>
+        <h3>Find a gig no matter your experience level</h3>
+        <p>Here at EXP, we connect you to jobs while gaining credible and verifiable experience. No matter how much experience you have, there is a job waiting for you.</p>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions d-flex mb-2">
-    <%= f.button :submit, "Log in", class: "btn btn-primary form-btn" %>
-  </div>
-  <%= render "devise/shared/links" %>
-<% end %>
-</div>
-<div style="width: 50%" >
-<%= image_tag "exp-logo/logo-01.png", class: 'form-logo mb-2' %>
-<h3>Find a gig no matter what your experience level</h3>
-<p>Here at EXP, we connect you to jobs while gaining credible and verifiable experience. No matter how much experience you have, there is a job waiting for you.</p>
-</div>
-
-</div>
-</div>
 </div>
