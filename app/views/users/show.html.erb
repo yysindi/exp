@@ -16,8 +16,25 @@
         <p> <i class="fab fa-twitter"></i> <a href="https://<%= @user.twitter_url %>"><%= @user.twitter_url %></a> </p>
       </div>
     </div>
-    <div>
+    <%# <div>
     <%= image_tag "exp-app-mockup-phone/app-mockup-gradient-with-daggers-01.png", class: "profile-exp-points prof-position"%>
+    <%# </div> %>
+    <div class="exp-panel">
+     <%= image_tag "exp-logo/logo-01.png", class:"img-fluid" %>
+      <% if @user.photo.present? %>
+      <%= cl_image_tag @user.photo.key, class: "exp-img" %>
+      <% else %>
+      <%= image_tag 'blank-profile-picture.jpg', class: "exp-img" %>
+      <% end %>
+      <div class="bars">
+        <p>Total EXP:</p>
+        <% @exp_scores.sum(:exp_value).each do |key, value| %>
+          <p><%= key %></p>
+          <div class="progress-bar">
+            <span class="level" style="--to-width: <%= ((value/10).to_s.concat("%")) %>"><%= value %></span>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
@@ -56,4 +73,4 @@
     <% end %>
   </div>
   </div>
-
+</div>
