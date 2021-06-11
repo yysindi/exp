@@ -1,8 +1,8 @@
 
 p 'Clearing database'
 
-Job.destroy_all
 Application.destroy_all
+Job.destroy_all
 User.destroy_all
 
 puts "creating users..."
@@ -236,9 +236,9 @@ job16 = Job.create(title: "Business Development Manager",
   company_name: 'Barnardos')
   
 puts "creating exp scores..."
-exp1 = ExpScore.create(user: User.first, job: job1, industry: "Web Development", exp_value: 160)
-exp2 = ExpScore.create(user: User.second,job: job2, industry: "Design", exp_value: 125)
-exp3 = ExpScore.create(user: User.first, job: job3, industry: "Data Analysis", exp_value: 190)
+exp1 = ExpScore.create(user: User.first, job: job1, industry: "Web Development", exp_value: 350)
+exp2 = ExpScore.create(user: User.second,job: job2, industry: "Design", exp_value: 560)
+exp3 = ExpScore.create(user: User.first, job: job3, industry: "Data Analysis", exp_value: 180)
 exp4 = ExpScore.create(job: job4, industry: "Human Resources", exp_value: 155)
 exp5 = ExpScore.create(job: job5, industry: "Web Development", exp_value: 100)
 exp6 = ExpScore.create(job: job6, industry: "Business", exp_value: 165)
