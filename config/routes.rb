@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :jobs, only: [:index , :show] do
     resources :applications, only: [:create]
   end
+  post '/search', to: 'jobs#search'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
