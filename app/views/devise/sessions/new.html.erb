@@ -1,7 +1,7 @@
 <div class="py-5 sign-up-background">
   <div class="form-card">
     <div class="d-flex form-compartment">
-      <div>
+      <div style="width: 80%;">
       <h2>Log in</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -22,9 +22,9 @@
         <%= render "devise/shared/links" %>
         <% end %>
       </div>
-      <div style="width: 70%" >
+      <div class="ml-5" style="width: 70%" >
         <%= image_tag "exp-logo/logo-01.png", class: 'form-logo mb-2' %>
-        <h3>Find a gig no matter your experience level</h3>
+        <h3>Find a gig</h3>
         <p>Here at EXP, we connect you to jobs while gaining credible and verifiable experience. No matter how much experience you have, there is a job waiting for you.</p>
       </div>
     </div>
