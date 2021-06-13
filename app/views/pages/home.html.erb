@@ -7,18 +7,16 @@
       <%= image_tag "exp-app-mockup-phone/app-mockup-gradient-with-daggers-01.png", :class => "app-mockup"%>
       <div class="central-cta">
         <div class="cta-explainer">
-          <h1>Catch 22 for Under-30s</h1>
+          <h1 id="central-cta-title">Catch 22 for Under-30s</h1>
           <p class="paragraph-normal-font">Can't start a career without experience, yet can't get experience without a job?</p>
           <p class="paragraph-heavy-font">Complete short gigs with leading startups for EXP!</p>
-          <%#= link_to "Find Gigs", jobs_path, class: "cta-purple-button" %>
         </div>
         <div class="cta-explainer-02">
-          <h1>Catch 22 for Under-30s</h1>
-          <p class="paragraph-normal-font">Can't start a career without experience, yet can't get experience without a job?</p>
-          <p class="paragraph-heavy-font">Complete short gigs with leading startups for EXP!</p>
-          <%#= link_to "Find Gigs", jobs_path, class: "cta-purple-button" %>
+          <p class="paragraph-normal-font", id="paragraph-normal-font-bigger">Apply to gigs <b>in one click</b>, and level up your profile with real, in-demand skills on completion.</p>
+          <%= link_to "Find Gigs", jobs_path, class: "cta-purple-button" %>
         </div>
       </div>
+
     </div>
   </div>
   <div class="top-gigs-banner">

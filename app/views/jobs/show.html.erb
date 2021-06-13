@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="col-lg-4 col-sm-12">
-        <button id= "sweet-alert-demo"><% if @job.accepting_applications %>
+        <button id="sweet-alert-demo"><% if @job.accepting_applications %>
           <%= link_to "#{current_user.applications.find_by(job_id: @job.id) ? "Applied!" : "Apply"}",
             job_applications_path(job_id: @job.id), 
             method: :post,

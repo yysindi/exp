@@ -19,23 +19,23 @@
 .central-cta {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 80vh;
   width: 900px;
-  justify-content: space-around;
-  align-items: space-around;
+  justify-content: space-between;
+  align-items: space-between;
   z-index: 10;
   position: absolute;
-  margin-left: 2vw;
+  margin-top: 5vh;
 }
 
 .cta-purple-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 120px;
-  margin-left: 140px;
-  top: 100px;
+  width: 565px;
+  margin-left: -20px;
+  margin-bottom: -10px;
+  height: 100px;
   background-color: #7B61F8;
   color: #fff;
   font-family: 'Quicksand', sans-serif;
@@ -56,6 +56,21 @@
   transition: background 500ms ease-in-out;
 }
 
+.paragraph-normal-font {
+  font-size: 28px;
+}
+
+#paragraph-normal-font-bigger {
+  font-size: 28px;
+}
+.paragraph-heavy-font {
+  font-size: 28px;
+}
+
+#central-cta-title {
+  font-size: 32px;
+}
+
 .cta-explainer {
   display: flex;
   flex-direction: column;
@@ -65,9 +80,9 @@
   box-shadow: 0 10px 6px -6px #909090a6;
   padding: 21px 36px;
   border-radius: 3px;
-  margin-left: 50px;
-  height: 250px;
-  width: 550px;
+  margin-left: 60px;
+  height: 400px;
+  width: 600px;
   h1 {
     font-size: 2em;
     margin-bottom: 2vh;
@@ -90,10 +105,10 @@
   box-shadow: 0 10px 6px -6px #909090a6;
   padding: 21px 36px;
   border-radius: 3px;
-  margin-left: 120px;
-  height: 350px;
+  margin-left: 140px;
+  margin-top: 20px;
+  height: 300px;
   width: 600px;
-  margin-top: -120px;
   h1 {
     font-size: 1.5em;
     margin: 0;

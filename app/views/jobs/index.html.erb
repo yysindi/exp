@@ -1,41 +1,51 @@
-<div class="container d-flex justify-content-center ">
-  <div class="form-search">
-    
-        <%= simple_form_for :search, url: search_path, 
-        method: :post, remote: true  ,id:"search-form", html:{class:"m-3 w-100"} do |f| %>
-         <div class = "d-flex ">
-            <%= f.input :query, input_html: {class: "form-control", value: params.dig(:search, :query) },
-                label: false,
-              placeholder: "Find a Company/Role"
-            %>
-            <%= f.input :industry, collection: Job.pluck(:industry).uniq.sort, prompt: 'Select Industry',selected: params.dig(:search,:industry), label: false %>
-            <%= f.submit  "Search", class: "btn btn-primary search-btn ml-3 align-self-start" %>
+<div class="whole-page-container-jobs">
+<%= image_tag "background-ribbons/background-gradient-01.png", :class => "background-gradient-jobs"%>
+<%= image_tag "background-ribbons/floating-balls-01.png", :class => "floating-balls-jobs"%>
+<%= image_tag "background-ribbons/floating-balls-02.png", :class => "floating-balls-jobs-02"%>
+  <h1 class="jobs-index-title">Check out our Live Gigs!</h1>
+  <div class="container d-flex justify-content-center ">
+    <div class="form-search">
+
+          <%= simple_form_for :search, url: search_path,
+          method: :post, remote: true  ,id:"search-form", html:{class:"m-3 w-100"} do |f| %>
+           <div class = "search-bar">
+              <div id="first-search-box">
+                <%= f.input :query, input_html: {class: "form-control", value: params.dig(:search, :query) },
+                  label: false,
+                placeholder: "Find a Company/Role"
+                %>
+              </div>
+              <div id="second-search-box">
+                <%= f.input :industry, collection: Job.pluck(:industry).uniq.sort, prompt: 'Select Industry',selected: params.dig(:search,:industry), label: false %>
+              </div>
+              <div class = "d-flex align-items-start">
+            <%= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false, input_html: {value: params.dig(:search, :paid), class: 'paid_btn'}, label: 'paid' %>
+            <%= f.input :location, as: :boolean, checked_value: true, unchecked_value: false, input_html: {value: params.dig(:search, :location) == "true", class: 'remote_btn ml'}, label: 'remote' %>
+              </div>
+                <%= f.submit  "Search", class: "btn btn-primary search-btn ml-3 align-self-start" %>
         </div>
-      <div class = "d-flex align-items-start">
-          <p> <strong> Filters : </strong></p>
-        <%= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false, input_html: {value: params.dig(:search, :paid), class: 'paid_btn'}, label: 'paid' %>
-        <%= f.input :location, as: :boolean, checked_value: true, unchecked_value: false, input_html: {value: params.dig(:search, :location) == "true", class: 'remote_btn ml'}, label: 'remote' %>
-      </div>
-    <% end %>
-  </div>
-</div>
-<div>
-  <p class = "d-flex justify-content-center" > Your search has <%= @jobs.count %> results</p>
-</div>
-<div class="container">
-    <div id="jobs" class = "flex-row justify-content-start ">
-      <% @jobs.each do |job| %>
-            <div class="card d-flex card-job">
-                <%= image_tag job.logo %>
-                <div class="card-body">
-                  <p class = "title-job"> <%= icon('fas', 'crown') %> <%=job.title%> </p>
-                  <p> <%= icon('fas', 'building') %> <%=job.company_name%> </p>
-                  <p> <%= icon('fas', 'money-bill') %> <%=job.compensation == 0 ? "Unpaid":job.compensation %></p>
-                  <p> <%= icon('fas', 'map-marker') %> <%=job.location%> </p>
-                  <p> <%= icon('fas', 'industry') %> <%=job.industry%> </p>
-                  <%= link_to "Find out more", job_path(job), class: "btn btn-success d-flex justify-content-center apply-btn-jobs"%>
-                </div>
-            </div>
       <% end %>
     </div>
+  </div>
+  <div>
+    <p class = "d-flex justify-content-center" > Your search has <%= @jobs.count %> results</p>
+  </div>
+  <div class="container">
+      <div id="jobs" class = "flex-row justify-content-start ">
+        <% @jobs.each do |job| %>
+              <div class="card d-flex card-job">
+                  <%= image_tag job.logo %>
+                  <div class="card-body-exp">
+                    <p class = "title-job"> <%= icon('fas', 'crown') %> <%=job.title%> </p>
+                    <p class = "title-job"> <%= icon('fas', 'building') %> <%=job.company_name%> </p>
+                    <p class = "title-job"> <%= icon('fas', 'money-bill') %> <%=job.compensation == 0 ? "Unpaid":job.compensation %></p>
+                    <p class = "title-job"> <%= icon('fas', 'map-marker') %> <%=job.location%> </p>
+                    <p class = "title-job"> <%= icon('fas', 'industry') %> <%=job.industry%> </p>
+                    <%= link_to "Find out more", job_path(job), class: "btn btn-success d-flex justify-content-center apply-btn-jobs"%>
+                  </div>
+              </div>
+        <% end %>
+      </div>
+  </div>
 </div>
+
