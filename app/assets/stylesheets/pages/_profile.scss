@@ -13,13 +13,16 @@
 
 .profile-background {
   width: 100%;
-  background-image: asset-url("space-invaders.png");
+  // background-image: asset-url("space-invaders.png");
+  background-image: asset-url("background-ribbons/eggs-whirl-01.png");
+  background-size: cover;
   height: 300px;
   border-radius: 8px;
 }
 
 .profile-card-border-radius {
   border-radius: 8px;
+  padding: 20px;
 }
 
 .profile-exp-points {
@@ -28,4 +31,37 @@
 
 .jobs-profile {
   margin-bottom: 80px;
+}
+
+.mission {
+  margin-bottom: 30px;
+}
+
+.completed-jobs {
+  border-radius: 6px;
+  width: 160px;
+  background-color: #f4f4f4;
+  margin-top: 20px;
+  margin-right: 40px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  span {
+    font-size: 0.5em;
+    font-family: "Quicksand", " sans-serif";
+  }
+  p {
+    flex-grow: 1;
+  }
+  .fa-crown {
+    color: #ffbc25;
+    margin-bottom: 8px;
+    font-size: 2em;
+  }
+}
+.social-links {
+  font-size: 1.4em;
+  margin-right: 10px;
 }

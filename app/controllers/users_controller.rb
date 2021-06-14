@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @applications = Application.where(user_id: @user.id)
-    @exp_scores = @user.exp_scores.group(:industry)
+#     @exp_scores = @user.exp_scores.group(:industry)
     @favorites = current_user.all_favorited
+    @exp_scores = @user.exp_scores
   end
 
   def edit

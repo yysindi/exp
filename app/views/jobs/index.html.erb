@@ -1,7 +1,5 @@
 <div class="whole-page-container-jobs">
 <%= image_tag "background-ribbons/background-gradient-01.png", :class => "background-gradient-jobs"%>
-<%= image_tag "background-ribbons/floating-balls-01.png", :class => "floating-balls-jobs"%>
-<%= image_tag "background-ribbons/floating-balls-02.png", :class => "floating-balls-jobs-02"%>
   <h1 class="jobs-index-title">Check out our Live Gigs!</h1>
   <div class="container d-flex justify-content-center ">
     <div class="form-search">
@@ -28,7 +26,7 @@
     </div>
   </div>
   <div>
-    <p class = "d-flex justify-content-center" > Your search has <%= @jobs.count %> results</p>
+    <p class = "d-flex justify-content-center" > Your search has <%= @jobs.total_count %> results</p>
   </div>
   <div class="container">
       <div id="jobs" class = "flex-row justify-content-start ">
@@ -55,6 +53,16 @@
                   </div>
               </div>
         <% end %>
+      </div>
+      <% if @jobs.last_page?  %>
+        <div>
+          <h3 class="end-of-jobs">That's all the jobs that match your criteria. Please reset your filters for more gigs.</h3>
+        </div>
+      <% end %>
+      <div class="paginate">
+        
+        <p><%= page_entries_info @jobs %></p>
+        <p><%= paginate @jobs %></p>
       </div>
   </div>
 </div>
