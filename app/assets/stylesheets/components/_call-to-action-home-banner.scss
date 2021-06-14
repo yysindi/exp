@@ -4,7 +4,6 @@
 // $purple: #7B61F8
 
 .green-background {
-  background-color: #00EFCA;
   height: 90vh;
 }
 
@@ -13,35 +12,37 @@
   height: 100vh;
   justify-content: center;
   position: absolute;
-  top: 105vh;
-  right: 3vw;
+  top: 110vh;
+  right: 8vw;
 }
 
 .central-cta {
   display: flex;
   flex-direction: column;
-  height: 550px;
-  max-width: 800px;
-  justify-content: space-around;
-  align-items: space-around;
-  margin-left: 5vw;
+  height: 80vh;
+  width: 900px;
+  justify-content: space-between;
+  align-items: space-between;
   z-index: 10;
   position: absolute;
+  margin-top: 5vh;
 }
 
 .cta-purple-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 120px;
+  width: 565px;
+  margin-left: -20px;
+  margin-bottom: -10px;
+  height: 80px;
   background-color: #7B61F8;
   color: #fff;
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   font-size: 40px;
-  border-radius: 16px;
-  margin-top: 30px;
+  border-radius: 3px;
+  z-index: 100;
 }
 
 .cta-purple-button:hover {
@@ -55,12 +56,72 @@
   transition: background 500ms ease-in-out;
 }
 
+.paragraph-normal-font {
+  font-size: 28px;
+}
+
+#paragraph-normal-font-bigger {
+  font-size: 28px;
+}
+.paragraph-heavy-font {
+  font-size: 28px;
+}
+
+#central-cta-title {
+  font-size: 32px;
+}
+
 .cta-explainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: 0 10px 6px -6px #909090a6;
+  padding: 21px 36px;
+  border-radius: 3px;
+  margin-left: 60px;
+  height: 400px;
   width: 600px;
+  h1 {
+    font-size: 2em;
+    margin-bottom: 2vh;
+  }
+  h2 {
+    font-size: 0.8em;
+    margin-bottom: 14px;
+  }
+  h4 {
+    font-size: 0.9em;
+  }
+}
+
+.cta-explainer-02 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: 0 10px 6px -6px #909090a6;
+  padding: 21px 36px;
+  border-radius: 3px;
+  margin-left: 140px;
+  margin-top: 20px;
   height: 350px;
-  padding: 40px;
-  border-radius: 16px;
-  color: black;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  width: 600px;
+  h1 {
+    font-size: 1.5em;
+    margin: 0;
+  }
+  h2 {
+    font-size: 0.8em;
+    margin-bottom: 1rem;
+
+  }
+  h4 {
+    font-size: 0.9em;
+  }
+  p {
+    margin-bottom: 2rem;
+  }
 }

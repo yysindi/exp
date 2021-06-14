@@ -1,9 +1,9 @@
 .bg-image {
   background-image: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
     ),
-    asset-url("background-ribbons/background-gradient-01.png");
+    asset-url("background-ribbons/eggs-whirl-01.png");
   background-size: cover;
   min-height: 100vh;
 }
@@ -39,6 +39,7 @@
     color: $purple;
   }
 }
+
 .apply-btn {
   margin-top: 40px;
   color: white;
