@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
   get 'users/:id', to: 'users#show', as: 'user'
+  get 'notifications', to: 'notifications#index'
   patch 'users/:id', to: 'users#update'
 
   patch 'restaurants/:id', to: 'restaurants#update'
