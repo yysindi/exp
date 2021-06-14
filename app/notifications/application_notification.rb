@@ -1,9 +1,9 @@
 # To deliver this notification:
-
 # ApplicationNotification.with(post: @post).deliver_later(current_user)
 # ApplicationNotification.with(post: @post).deliver(current_user)
 
 class ApplicationNotification < Noticed::Base
+  include Devise::Controllers::Helpers
   # Add your delivery methods
   #
   deliver_by :database
@@ -28,7 +28,10 @@ class ApplicationNotification < Noticed::Base
     t(".message")
   end
 
-  def url
-    root_path
+  def url(user_id, notification)
+    # before redirecting find notification and do .read = true
+    notification.mark_as_read!
+    user_path(user_id)
+    # root_path
   end
 end

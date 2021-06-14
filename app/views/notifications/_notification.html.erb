@@ -1,3 +1,5 @@
-<div>
-<%= link_to notification.to_notification.message, notification.to_notification.url %>
+<div class="notification-box-successful-application <%= "notification-read" if notification.read? %>">
+  <%= image_tag "icons/android-chrome-192x192.png", class: "emoji-sunglasses" %>
+  <%= link_to notification.to_notification.message, notification.to_notification.url(current_user.id, notification), class: "notification-message" %>
 </div>
+
