@@ -20,6 +20,7 @@
 
 .profile-card-border-radius {
   border-radius: 8px;
+  padding: 20px;
 }
 
 .profile-exp-points {
@@ -28,4 +29,33 @@
 
 .jobs-profile {
   margin-bottom: 80px;
+}
+
+.mission {
+  margin-bottom: 30px;
+}
+
+.completed-jobs {
+  border-radius: 6px;
+  width: 140px;
+  background-color: #f4f4f4;
+  margin-top: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  span {
+    font-size: 0.5em;
+    font-family: "Quicksand", " sans-serif";
+  }
+  p {
+    flex-grow: 1;
+  }
+  .fa-crown {
+    color: #ffbc25;
+    margin-bottom: 8px;
+    font-size: 2em;
+  }
 }
