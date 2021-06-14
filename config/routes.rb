@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show', as: 'user'
   patch 'users/:id', to: 'users#update'
 
+  post 'toggle_favorite/:id', to: 'jobs#toggle_favorite', as: 'toggle_favorite'
+
   patch 'restaurants/:id', to: 'restaurants#update'
   root to: 'pages#home'
    # post 'apply', to: 'pages#apply'

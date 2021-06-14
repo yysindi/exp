@@ -43,6 +43,20 @@
   <% end %>
   </div>
 
+   <div class="profile-card-border-radius card m-4">
+    <h4 class="m-4">Favourited:</h4>
+    <div class="jobs-profile d-flex flex-row justify-content-start flex-wrap">
+    <% @favorites.each do |favorite| %>
+      <div class="card d-flex card-job" style="width:200px;height:200px;">
+                <%= image_tag favorite.logo %>
+                <div class="card-body">
+                  <p style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=favorite.title%> </p>
+                </div>
+            </div>
+    <% end %>
+  </div>
+  </div>
+
   <div class="profile-card-border-radius card m-4">
     <h4 class="m-4">Pending applications:</h4>
     <div class="jobs-profile d-flex flex-row justify-content-start flex-wrap">
