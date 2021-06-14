@@ -10,10 +10,10 @@
       <% end %>
        <div style="margin-top: 120px;">
         <h3><%= @user.name.present? ? @user.name : "Octopus3000" %> <%= %></h3>
-        <h6> <%= @user.desired_industry%> </h6>
+        <a class="social-links" href="https://<%= @user.linked_in %>"><i class="fab fa-linkedin"></i></a>
+        <a class="social-links" href="https://<%= @user.twitter_url %>"><i class="fab fa-twitter"></i></a>
+        <p>Desired industry: <%= @user.desired_industry%> </p>
         <p> <%= @user.profile_description %> </p>
-        <p><i class="fab fa-linkedin"></i><a href="https://<%= @user.linked_in %>"><%= @user.linked_in%></a> </p>
-        <p> <i class="fab fa-twitter"></i> <a href="https://<%= @user.twitter_url %>"><%= @user.twitter_url %></a> </p>
       </div>
     </div>
     <div class="m-5 exp-panel profile-exp-points prof-position">
