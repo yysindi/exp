@@ -26,7 +26,7 @@
     </div>
   </div>
   <div>
-    <p class = "d-flex justify-content-center" > Your search has <%= @jobs.count %> results</p>
+    <p class = "d-flex justify-content-center" > Your search has <%= @jobs.total_count %> results</p>
   </div>
   <div class="container">
       <div id="jobs" class = "flex-row justify-content-start ">
@@ -44,9 +44,16 @@
               </div>
         <% end %>
       </div>
-    <div>
-      <h3 class="end-of-jobs">That's all the jobs that match your criteria. Please reset your filters for more gigs.</h3>
-    </div>
+      <% if @jobs.last_page?  %>
+        <div>
+          <h3 class="end-of-jobs">That's all the jobs that match your criteria. Please reset your filters for more gigs.</h3>
+        </div>
+      <% end %>
+      <div class="paginate">
+        
+        <p><%= page_entries_info @jobs %></p>
+        <p><%= paginate @jobs %></p>
+      </div>
   </div>
 </div>
 
