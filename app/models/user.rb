@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :jobs, through: :applications
   has_one_attached :photo
 
+  acts_as_favoritor
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

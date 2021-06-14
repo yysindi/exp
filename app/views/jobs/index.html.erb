@@ -34,12 +34,22 @@
               <div class="card d-flex card-job">
                   <%= image_tag job.logo %>
                   <div class="card-body-exp">
+                    <div class="d-flex justify-content-between">
                     <p class = "title-job"> <%= icon('fas', 'crown') %> <%=job.title%> </p>
+                    <%= link_to toggle_favorite_path(job), method: :post, remote: true do %>
+                      <% if !job.favorited_by?(current_user) %>
+                      <i style="font-size: 28px" class="far fa-heart"></i>
+                      <% else %>
+                      <i style="font-size: 28px" class="fas fa-heart"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
                     <p class = "title-job"> <%= icon('fas', 'building') %> <%=job.company_name%> </p>
                     <p class = "title-job"> <%= icon('fas', 'money-bill') %> <%=job.compensation == 0 ? "Unpaid":job.compensation %></p>
                     <p class = "title-job"> <%= icon('fas', 'map-marker') %> <%=job.location%> </p>
                     <p class = "title-job"> <%= icon('fas', 'industry') %> <%=job.industry%> </p>
                     <%= link_to "Find out more", job_path(job), class: "btn btn-success d-flex justify-content-center apply-btn-jobs"%>
+
                   </div>
               </div>
         <% end %>
@@ -56,4 +66,21 @@
       </div>
   </div>
 </div>
+
+<% if params[:scroll].present? %>
+  <script>
+    document.addEventListener('turbolinks:load', () => {
+      if (localStorage['scroll']) {
+        window.scroll({ top: localStorage['scroll'] })
+      }
+    })
+  </script>
+<% end %>
+<script>
+  document.addEventListener('turbolinks:load', () => {
+    window.addEventListener('scroll', () => {
+      localStorage['scroll'] = window.scrollY;
+    })
+  });
+</script>
 
