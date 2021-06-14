@@ -7,14 +7,6 @@
   color: black;
 }
 
-.whole-page-container-jobs {
-  background-image: linear-gradient(
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0.5));
-  background-repeat: no-repeat;
-  background-size: stretch;
-}
-
 .background-gradient-jobs {
   position: absolute;
   z-index: -1000;
@@ -195,6 +187,29 @@
   width: 80vw;
   margin-left: 10vw;
   margin-right: 10vw;
+}
+
+.end-of-jobs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: 0 10px 6px -6px #909090a6;
+  border-radius: 3px;
+  margin-top: 4vh;
+  padding-top: 3vh;
+  padding-bottom: 2vh;
+  padding-right: 4vw;
+  padding-left: 4vw;
+  text-align: center;
+  font-size: 18px;
+  opacity: 0.8;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
 .title-job {
