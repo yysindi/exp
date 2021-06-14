@@ -43,6 +43,7 @@
   <% end %>
   </div>
 
+<%# completed missions %>
   <div class="profile-card-border-radius card m-4">
     <h4 class="mb-4">Completed missions</h4>
     <p><%= @user.name %> has <%= @exp_scores.sum(:exp_value) %> EXP points</p>
@@ -57,6 +58,7 @@
     <% end %>
     </div>
   </div>
+  <%# completed missions- end %>
 
   <div class="profile-card-border-radius card m-4">
     <h4 class="mb-4">Pending applications:</h4>

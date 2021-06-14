@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    @jobs = Job.page(params[:page])
     if params[:ids].present?
       @jobs = @jobs.where(id: params[:ids])
     end
