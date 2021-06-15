@@ -4,70 +4,100 @@
   <div class="flex-row d-flex justify-content-between mx-5 prof-position">
     <div  style="width: 40%;">
       <% if @user.photo.present? %>
-      <%= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :fill, class: "profile-img" %>
+        <%= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :fill, class: "profile-img" %>
       <% else %>
-      <%= image_tag 'blank-profile-picture.jpg', height: 200, width: 200, crop: :fill, class: "profile-img" %>
+        <%= image_tag 'blank-profile-picture.jpg', height: 200, width: 200, crop: :fill, class: "profile-img" %>
       <% end %>
        <div style="margin-top: 120px;">
         <h3><%= @user.name.present? ? @user.name : "Octopus3000" %> <%= %></h3>
-        <h6> <%= @user.desired_industry%> </h6>
+        <a class="social-links" href="https://<%= @user.linked_in %>"><i class="fab fa-linkedin"></i></a>
+        <a class="social-links" href="https://<%= @user.twitter_url %>"><i class="fab fa-twitter"></i></a>
+        <p>Desired industry: <%= @user.desired_industry%> </p>
         <p> <%= @user.profile_description %> </p>
-        <p><i class="fab fa-linkedin"></i><a href="https://<%= @user.linked_in %>"><%= @user.linked_in%></a> </p>
-        <p> <i class="fab fa-twitter"></i> <a href="https://<%= @user.twitter_url %>"><%= @user.twitter_url %></a> </p>
       </div>
     </div>
-    <%# <div>
-    <%= image_tag "exp-app-mockup-phone/app-mockup-gradient-with-daggers-01.png", class: "profile-exp-points prof-position"%>
-    <%# </div> %>
     <div class="m-5 exp-panel profile-exp-points prof-position">
       <%= image_tag "exp-logo/logo-01.png", class:"img-fluid" %>
-      <% completed_jobs = @applications.select {|application| application.job.completed == true} %>
-      <h1 class="mt-4"style="font-size: 80px;"><%= completed_jobs.count  %> </h1>
+      <% if @exp_scores.empty? %>
+        <p>No missions Completed</p>
+        <%= link_to "Find a Gigs", jobs_path, class: "cta-purple-button-profile" %>
+      <% else %>
+        <h1 class="mt-4"style="font-size: 80px;"><%= @exp_scores.count  %> </h1>
+        <p class="mission">Missions completed!</p>
+      <% end %>
       <div class="bars">
-        <p class='my-4'>Total EXP:</p>
-        <% @exp_scores.sum(:exp_value).each do |key, value| %>
-          <p style="font-size: 20px;"><%= key %></p>
-          <div class="progress-bar mb-3">
+        <% @exp_scores.group(:industry).sum(:exp_value).each do |key, value| %>
+          <p><%= key %></p>
+          <div class="progress-bar">
             <span class="level" style="--to-width: <%= ((value/10).to_s.concat("%")) %>"><%= value %></span>
           </div>
         <% end %>
-
       </div>
     </div>
   </div>
 
   <% if @user == (current_user) %>
-  <%= link_to edit_user_path(@user) do %>
+    <%= link_to edit_user_path(@user) do %>
       <i class="fas fa-edit edit-bottom-right" style="font-size: 20px; text-align: right;"></i>
-  <% end %>
+    <% end %>
   <% end %>
   </div>
 
-  <div class="profile-card-border-radius card m-4">
-    <h4 class="m-4">Pending applications:</h4>
+   <div class="profile-card-border-radius card m-4">
+    <h4 class="m-4">Favourited:</h4>
     <div class="jobs-profile d-flex flex-row justify-content-start flex-wrap">
-    <% @applications.each do |application| %>
+    <% @favorites.each do |favorite| %>
       <div class="card d-flex card-job" style="width:200px;height:200px;">
-                <%= image_tag application.job.logo %>
+                <%= image_tag favorite.logo %>
                 <div class="card-body">
-                  <p style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=application.job.title%> </p>
+                  <p style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=favorite.title%> </p>
                 </div>
             </div>
     <% end %>
   </div>
   </div>
+
+
   <div class="profile-card-border-radius card m-4">
-    <h4 class="m-4">Accepted applications:</h4>
+    <h4 class="mb-4">Completed missions</h4>
+    <p><%= @user.name %> has <%= @exp_scores.sum(:exp_value) %> EXP points</p>
     <div class="jobs-profile d-flex flex-row justify-content-start flex-wrap">
+    <% @exp_scores.each do |score| %>
+      <div class="completed-jobs">
+        <%= icon('fas', 'crown') %>
+        <h3><%=score.exp_value%></h3>
+        <p><%= score.industry %></p>
+        <%= link_to "More info", job_path(id: score.job.id) %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="profile-card-border-radius card m-4">
+    <h4 class="mb-4">Pending applications:</h4>
+    <div class="jobs-profile d-flex flex-row justify-content-start flex-wrap">
+    <% @applications.each do |application| %>
+      <div class="card d-flex card-job" style="width:200px;height:200px;">
+        <%= image_tag application.job.logo %>
+        <div class="card-body">
+          <p style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=application.job.title%> </p>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+<div class="profile-card-border-radius card m-4">
+  <h4 class="mb-4">Accepted applications:</h4>
+  <div class="jobs-profile d-flex flex-row justify-content-start flex-wrap">
     <% @applications.each do |application| %>
       <% if application.status == "Accepted" %>
       <div class="card d-flex card-job" style="width:200px;height:200px;">
-                <%= image_tag application.job.logo %>
-                <div class="card-body">
-                  <p style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=application.job.title%> </p>
-                </div>
-            </div>
+          <%= image_tag application.job.logo %>
+          <div class="card-body">
+            <p style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=application.job.title%> </p>
+          </div>
+      </div>
       <% end %>
     <% end %>
   </div>
-  </div>
+</div>

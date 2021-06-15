@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'notifications', to: 'notifications#index'
   patch 'users/:id', to: 'users#update'
 
+  post 'toggle_favorite/:id', to: 'jobs#toggle_favorite', as: 'toggle_favorite'
+
   patch 'restaurants/:id', to: 'restaurants#update'
   root to: 'pages#home'
    # post 'apply', to: 'pages#apply'
