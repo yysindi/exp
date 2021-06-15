@@ -3,7 +3,7 @@ class AccountCreatedMailerPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/account_created_mailer/welcome
   def welcome
-    AccountCreatedMailer.welcome
+    AccountCreatedMailer.welcome(User.first)
   end
 
   # Preview this email at http://localhost:3000/rails/mailers/account_created_mailer/Job_application

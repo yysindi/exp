@@ -1,8 +1,5 @@
 <div class="whole-page-container-jobs">
 <%= image_tag "background-ribbons/background-gradient-01.png", :class => "background-gradient-jobs"%>
-<%= image_tag "background-ribbons/floating-balls-01.png", :class => "floating-balls-jobs"%>
-<%= image_tag "background-ribbons/floating-balls-02.png", :class => "floating-balls-jobs-02"%>
-  <h1 class="jobs-index-title">Check out our Live Gigs!</h1>
   <div class="container d-flex justify-content-center ">
     <div class="form-search">
 
@@ -18,7 +15,7 @@
               <div id="second-search-box">
                 <%= f.input :industry, collection: Job.pluck(:industry).uniq.sort, prompt: 'Select Industry',selected: params.dig(:search,:industry), label: false %>
               </div>
-              <div class = "d-flex align-items-start">
+              <div class = "d-flex align-items-start ml-1 mt-1">
             <%= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false, input_html: {value: params.dig(:search, :paid), class: 'paid_btn'}, label: 'paid' %>
             <%= f.input :location, as: :boolean, checked_value: true, unchecked_value: false, input_html: {value: params.dig(:search, :location) == "true", class: 'remote_btn ml'}, label: 'remote' %>
               </div>
