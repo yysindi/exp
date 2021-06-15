@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    @jobs = Job.page(params[:page])
     if params[:ids].present?
       @jobs = @jobs.where(id: params[:ids])
     end
@@ -11,7 +11,7 @@ class JobsController < ApplicationController
     @exp_score = @job.exp_scores
   end
 
-  def search 
+  def search
     @jobs = Job.all
     if params.dig(:search, :query).present?
       sql_query = "title ILIKE :query OR description ILIKE :query OR company_name ILIKE :query"
@@ -30,6 +30,21 @@ class JobsController < ApplicationController
       @jobs = @jobs.where(sql_query, location: "%Remote%")
     end
 
-     redirect_to jobs_path(ids: @jobs.pluck(:id))
+    redirect_to jobs_path(ids: @jobs.pluck(:id))
   end
+
+  def toggle_favorite
+    if !Job.find(params[:id]).favorited_by?(current_user)
+        current_user.favorite(Job.find(params[:id]))
+    else
+      current_user.unfavorite(Job.find(params[:id]))
+    end
+
+      if params[:showpage]
+        redirect_to job_path(Job.find(params[:id]))
+      else
+        redirect_to jobs_path(scroll: true)
+      end
+  end
+
 end

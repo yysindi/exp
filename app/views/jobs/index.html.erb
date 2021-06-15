@@ -1,5 +1,8 @@
 <div class="whole-page-container-jobs">
 <%= image_tag "background-ribbons/background-gradient-01.png", :class => "background-gradient-jobs"%>
+  
+  <h1 class="jobs-index-title">Check out our Live Gigs!</h1>
+
   <div class="container d-flex justify-content-center ">
     <div class="form-search">
 
@@ -25,7 +28,7 @@
     </div>
   </div>
   <div>
-    <p class = "d-flex justify-content-center" > Your search has <%= @jobs.count %> results</p>
+    <p class = "d-flex justify-content-center" > Your search has <%= @jobs.total_count %> results</p>
   </div>
   <div class="container">
       <div id="jobs" class = "flex-row justify-content-start ">
@@ -33,16 +36,53 @@
               <div class="card d-flex card-job">
                   <%= image_tag job.logo %>
                   <div class="card-body-exp">
+                    <div class="d-flex justify-content-between">
                     <p class = "title-job"> <%= icon('fas', 'crown') %> <%=job.title%> </p>
+                    <%= link_to toggle_favorite_path(job), method: :post, remote: true do %>
+                      <% if !job.favorited_by?(current_user) %>
+                      <i style="font-size: 28px" class="far fa-heart"></i>
+                      <% else %>
+                      <i style="font-size: 28px" class="fas fa-heart"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
                     <p class = "title-job"> <%= icon('fas', 'building') %> <%=job.company_name%> </p>
                     <p class = "title-job"> <%= icon('fas', 'money-bill') %> <%=job.compensation == 0 ? "Unpaid":job.compensation %></p>
                     <p class = "title-job"> <%= icon('fas', 'map-marker') %> <%=job.location%> </p>
                     <p class = "title-job"> <%= icon('fas', 'industry') %> <%=job.industry%> </p>
                     <%= link_to "Find out more", job_path(job), class: "btn btn-success d-flex justify-content-center apply-btn-jobs"%>
+
                   </div>
               </div>
         <% end %>
       </div>
+      <% if @jobs.last_page?  %>
+        <div>
+          <h3 class="end-of-jobs">That's all the jobs that match your criteria. Please reset your filters for more gigs.</h3>
+        </div>
+      <% end %>
+      <div class="paginate">
+        
+        <p><%= page_entries_info @jobs %></p>
+        <p><%= paginate @jobs %></p>
+      </div>
   </div>
 </div>
+
+<% if params[:scroll].present? %>
+  <script>
+    document.addEventListener('turbolinks:load', () => {
+      if (localStorage['scroll']) {
+        window.scroll({ top: localStorage['scroll'] })
+      }
+    })
+  </script>
+<% end %>
+<script>
+  document.addEventListener('turbolinks:load', () => {
+    window.addEventListener('scroll', () => {
+      localStorage['scroll'] = window.scrollY;
+    })
+  });
+</script>
 

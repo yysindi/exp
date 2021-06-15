@@ -3,6 +3,8 @@ class Job < ApplicationRecord
   has_many :applications, dependent: :destroy
   has_many :exp_scores
 
+  acts_as_favoritable
+
   validates :industry, presence: true
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: 20 }

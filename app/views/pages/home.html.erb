@@ -25,18 +25,17 @@
       <%= image_tag "background-ribbons/floating-balls-01.png", :class => "floating-balls", id: "lower-floating-balls"%>
       <div class="top-gigs-box">
           <h1 id="top-gigs-title">Latest Gigs</h1>
-          <% i = 0 %>
-          <%= 3.times do %>
-            <%= link_to jobs_path, class: "top-job-box", id:"top-job-box-01" do %>
+          <% @jobs.each do |job| %>
+            <%= link_to job_path(id: job.id), class: "top-job-box", id:"top-job-box-01" do %>
               <div class="top-job-inner" id="top-job-leftmost-inner">
-                <%= image_tag @jobs[i].logo, class: "top-gigs-logo"%>
+                <%= image_tag job.logo, class: "top-gigs-logo"%>
               </div>
               <div class="top-job-inner" id="top-job-middle-inner">
                 <div class="top-job-inner-upper-box">
-                <h3 class="weighted-h3"><%= @jobs[i].company_name %></h3>
+                <h3 class="weighted-h3"><%= job.company_name %></h3>
                 </div>
                 <div class="top-job-inner-lower-box">
-                <h3 class="weightless-h3"><%= @jobs[i].title %></h3>
+                <h3 class="weightless-h3"><%= job.title %></h3>
                 </div>
               </div>
               <div class="top-job-inner" id="top-job-rightmost-inner">
@@ -44,10 +43,9 @@
                 <h3 class="weighted-h3">£<%= [300, 350, 400, 450, 500].sample %> p.w.</h3>
                 </div>
                 <div class="top-job-inner-lower-box">
-                <h3 class="weightless-h3"><%= @jobs[i].location %></h3>
+                <h3 class="weightless-h3"><%= job.location %></h3>
                 </div>
               </div>
-              <% i += 1 %>
             <% end %>
           <% end %>
       </div>

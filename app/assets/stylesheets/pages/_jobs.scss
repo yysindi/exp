@@ -7,14 +7,6 @@
   color: black;
 }
 
-.whole-page-container-jobs {
-  background-image: linear-gradient(
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0.5));
-  background-repeat: no-repeat;
-  background-size: stretch;
-}
-
 .background-gradient-jobs {
   position: absolute;
   z-index: -1000;
@@ -49,9 +41,9 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #7B61F8;
+  background-color: #7b61f8;
   color: #fff;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: bold;
   font-size: 40px;
   border-radius: 3px;
@@ -63,9 +55,9 @@
   align-items: center;
   width: 342px;
   height: 70px;
-  background-color: #7B61F8;
+  background-color: #7b61f8;
   color: #fff;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: bold;
   font-size: 40px;
   border-radius: 3px;
@@ -77,30 +69,34 @@
 
 .cta-purple-button-jobs-show:hover {
   color: #fff;
-  background-image: -webkit-linear-gradient(45deg, #FF85EA 50%, transparent 50%);
-  background-image: linear-gradient(45deg, #FF85EA 50%, transparent 50%);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    #ff85ea 50%,
+    transparent 50%
+  );
+  background-image: linear-gradient(45deg, #ff85ea 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
   -webkit-transition: background 500ms ease-in-out;
   transition: background 500ms ease-in-out;
 }
 
-.apply-btn-jobs{
-  background: #7B61F8;
+.apply-btn-jobs {
+  background: #7b61f8;
   color: white;
   border-style: none;
   font-weight: bold;
   border-radius: 3px;
   margin-top: 20px;
 
-  &:hover{
+  &:hover {
     transform: translateY(-3px);
     box-shadow: 0 1rem 2rem rgba(rgb(116, 112, 112), 0.1);
     background-color: $purple;
     border-color: $purple;
   }
 
-  &:active{
+  &:active {
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(rgb(116, 112, 112), 0.1);
   }
@@ -111,7 +107,7 @@
 }
 
 .card-job {
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   width: 31%;
   margin: 1%;
   background-color: white;
@@ -120,18 +116,17 @@
   border-radius: 3px;
   font-weight: bolder;
 
-  &:hover{
+  &:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
   }
 
   @media (max-width: 968px) {
     width: 48%;
-
   }
 }
 
-.flex-row{
+.flex-row {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -153,7 +148,7 @@
 }
 
 .search-btn {
-  background:$purple;
+  background: $purple;
   color: white;
   border: none;
   border-radius: 4px;
@@ -197,14 +192,38 @@
   margin-right: 10vw;
 }
 
+.end-of-jobs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: 0 10px 6px -6px #909090a6;
+  border-radius: 3px;
+  margin-top: 4vh;
+  padding-top: 3vh;
+  padding-bottom: 2vh;
+  padding-right: 4vw;
+  padding-left: 4vw;
+  text-align: center;
+  font-size: 18px;
+  opacity: 0.8;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
 .title-job {
   display: -webkit-box;
   -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.paid_btn, .remote_btn {
+.paid_btn,
+.remote_btn {
   position: absolute;
   transform: scale(0);
 
@@ -215,19 +234,31 @@
     font-weight: bolder;
     border-radius: 50rem;
     padding: 0.1rem 0.5rem;
-    background-color: #ECEAFF;
-    color: #7E73FF;
-    border: 1px solid #7E73FF;
+    background-color: #eceaff;
+    color: #7e73ff;
+    border: 1px solid #7e73ff;
     margin-right: 0.6rem;
     margin-bottom: 0.4rem;
   }
 
   &:checked + label {
-    background-color: #7E73FF;
+    background-color: #7e73ff;
     color: white;
   }
 }
 
 .form-check {
   padding-left: 0.25rem;
+}
+
+.paginate {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination {
+  justify-content: center;
+  span {
+    margin: 0 10px;
+  }
 }

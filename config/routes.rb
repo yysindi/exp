@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
   get 'users/:id', to: 'users#show', as: 'user'
+  get 'notifications', to: 'notifications#index'
   patch 'users/:id', to: 'users#update'
+
+  post 'toggle_favorite/:id', to: 'jobs#toggle_favorite', as: 'toggle_favorite'
 
   patch 'restaurants/:id', to: 'restaurants#update'
   root to: 'pages#home'

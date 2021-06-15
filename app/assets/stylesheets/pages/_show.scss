@@ -71,6 +71,41 @@
   justify-content: space-between;
 }
 
+.favourites-img {
+  width: 320px;
+}
+
+.cta-purple-button-mission {
+  text-decoration: none;
+  color: white;
+  background-color: $purple;
+  padding: 10px 15px;
+  width: 110px;
+  border-radius: 6px;
+}
+
+.cta-purple-button-mission:hover {
+  text-decoration: none;
+  color: white;
+  background-color: purple;
+}
+#profile-card {
+  padding: 0;
+  text-align: center;
+  .fa-crown {
+    display: block;
+    margin-top: 12px;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+.status-applied {
+  font-weight: 200;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
 @media screen and (max-width: 500px) {
   .container-show {
     text-align: center;

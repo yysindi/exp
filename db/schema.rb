@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_133323) do
+ActiveRecord::Schema.define(version: 2021_06_15_094907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_133323) do
   create_table "applications", force: :cascade do |t|
     t.bigint "job_id", null: false
     t.bigint "user_id", null: false
-    t.string "status"
+    t.string "status", default: "applied"
     t.date "date_applied"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -56,6 +56,23 @@ ActiveRecord::Schema.define(version: 2021_06_09_133323) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["job_id"], name: "index_exp_scores_on_job_id"
     t.index ["user_id"], name: "index_exp_scores_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.string "favoritable_type", null: false
+    t.bigint "favoritable_id", null: false
+    t.string "favoritor_type", null: false
+    t.bigint "favoritor_id", null: false
+    t.string "scope", default: "favorite", null: false
+    t.boolean "blocked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blocked"], name: "index_favorites_on_blocked"
+    t.index ["favoritable_id", "favoritable_type"], name: "fk_favoritables"
+    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id"
+    t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
+    t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor_type_and_favoritor_id"
+    t.index ["scope"], name: "index_favorites_on_scope"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -75,6 +92,18 @@ ActiveRecord::Schema.define(version: 2021_06_09_133323) do
     t.string "company_name"
     t.string "location"
     t.text "about"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "recipient_type", null: false
+    t.bigint "recipient_id", null: false
+    t.string "type", null: false
+    t.jsonb "params"
+    t.datetime "read_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient_type_and_recipient_id"
   end
 
   create_table "users", force: :cascade do |t|

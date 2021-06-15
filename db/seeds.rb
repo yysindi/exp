@@ -24,7 +24,8 @@ job1 = Job.create(title: "Front End Developer",
   start_date: '2021-07-02',
   end_date: '2021-08-02',
   accepting_applications: true,
-  company_name: 'Beyond Retail')
+  company_name: 'Beyond Retail',
+  completed: true)
 
 job2 = Job.create(title: "Product design Intern",
   description: 'As a New Product Innovation (NPI) graduate, you’ll be sketching, prototyping, testing, failing and refining to deliver the high standards of product development Dyson is known for, working on ideas that will disrupt and transform markets. You’ll need to be thoroughly hands-on, practically applying your technical knowledge with a creative flair to ensure that all engineering problems are resolved thoroughly.',
@@ -38,7 +39,8 @@ job2 = Job.create(title: "Product design Intern",
   start_date: '2021-07-12',
   end_date: '2021-08-26', 
   accepting_applications: true, 
-  company_name: 'Crown commertial service')
+  company_name: 'Crown commertial service',
+  completed: true)
 
 job3 = Job.create(title: "Junior analyst",
   description: 'Our Junior Commercial Analyst will have contact with most departments in the business on a weekly basis including our warehouse, transport team, quality team and our Outbases, so we need someone who can communicate with people on all levels in a friendly and professional way. You will report to the Commercial Manager and Senior Commercial Analyst and work very closely with our whole Commercial team to make sure we always have a full understanding of the cost areas and P&L.',
@@ -52,7 +54,8 @@ job3 = Job.create(title: "Junior analyst",
   start_date: '2021-08-11',
   end_date: '2021-08-25', 
   accepting_applications: true, 
-  company_name: 'Frasers group')
+  company_name: 'Frasers group',
+  completed: true)
 
 job4 = Job.create(title: "HR Intern",
   description: 'Kortext has seen significant growth in the last 12 months and this role is key to driving our expansion by continuing to build on this success. This varied role will help develop strong relationships with internal stakeholders supporting with all aspects of HR from recruitment to onboarding. Reporting into the HR Director this role requires an enthusiastic HR assistant looking for a challenge and growth in an exciting company. Learning from an experienced team this role would be perfect for a graduate or someone looking to take their first steps into the world of HR and Recruitment.',
@@ -253,8 +256,6 @@ exp13 = ExpScore.create(job: job13, industry: "Marketing", exp_value: 120)
 exp14 = ExpScore.create(job: job14, industry: "Development", exp_value: 220)
 exp15 = ExpScore.create(job: job15, industry: "Marketing", exp_value: 145)
 exp16 = ExpScore.create(job: job16, industry: "Bussiness Ops", exp_value: 100)
-
-
 
 
 p 'Completed!!'
