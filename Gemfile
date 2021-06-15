@@ -40,7 +40,10 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'bootstrap'
 gem 'cloudinary', '~> 1.16.0'
+gem 'letter_opener', group: :development
+=======
 gem 'acts_as_favoritor'
+
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
