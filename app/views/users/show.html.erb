@@ -42,9 +42,9 @@
   <% end %>
   </div>
     <div class="profile-card-border-radius card m-4">
-      <h4 class="mb-4">Completed Missions</h4>
+      <h4 class="my-4 ml-3">Completed Missions</h4>
       <% if @exp_scores.any? %>
-        <p><%= @user.name %> has <%= @exp_scores.sum(:exp_value) %> EXP points</p>
+        <p class="ml-3"><%= @user.name %> has <%= @exp_scores.sum(:exp_value) %> EXP points</p>
         <div class="jobs-profile d-flex flex-row justify-content-start flex-wrap">
           <% @exp_scores.each do |score| %>
             <div class="completed-jobs">
@@ -61,7 +61,7 @@
       <% end %>
     </div>
   <div class="profile-card-border-radius card m-4">
-    <h4 class="mt-4">Favourited Jobs</h4>
+    <h4 class="mt-4 ml-3">Favourited Jobs</h4>
       <% if @favorites.empty? %>
         <p>You have no favourites yet.</p>
         <%= image_tag 'favourite.svg', class:"favourites-img" %>
@@ -80,7 +80,7 @@
   </div>
   <% if @applications.any? %>
     <div class="profile-card-border-radius card m-4">
-      <h4 class="mb-4">Applications:</h4>
+      <h4 class="mb-4 ml-3">Applications:</h4>
       <div class="jobs-profile d-flex flex-row justify-content-start flex-wrap">
         <% @applications.each do |application| %>
           <div class="card d-flex card-job" style="width:200px;height:200px;">
