@@ -43,7 +43,6 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'letter_opener', group: :development
 gem 'acts_as_favoritor'
 
-
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
