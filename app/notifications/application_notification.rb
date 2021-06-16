@@ -30,7 +30,7 @@ class ApplicationNotification < Noticed::Base
 
   def url(user_id, notification)
     # before redirecting find notification and do .read = true
-    notification.mark_as_read!
+    # notification.mark_as_read!
     user_path(user_id)
     # root_path
   end
