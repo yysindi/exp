@@ -5,9 +5,17 @@ p {
 .paragraph-normal-font {
   font-family: "Quicksand";
   font-weight: normal;
+  font-size: 34px !important;
+  text-align: left;
 }
 
 .paragraph-heavy-font {
   font-family: "Quicksand";
   font-weight: bold;
+}
+
+#paragraph-normal-font-bigger {
+  font-size: 34px;
+  margin-top: 20px;
+  text-align: left;
 }
