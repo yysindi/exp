@@ -7,7 +7,7 @@
 <div class="form-inputs" style="width: 100%;">
 <%= f.input :name %>
 <%= f.input :desired_industry %>
-<%= f.input :profile_description %>
+<%= f.input :profile_description, as: :text, :input_html => {:rows => 5} %>
 <%= f.input :linked_in %>
 <%= f.input :twitter_url %>
 <%= f.input :photo, as: :file %>
