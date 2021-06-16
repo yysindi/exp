@@ -34,7 +34,9 @@
       <div id="jobs" class = "flex-row justify-content-start ">
         <% @jobs.each do |job| %>
               <div class="card d-flex card-job">
-                  <%= image_tag job.logo %>
+                    <%= link_to job_path(job) do %>
+                      <%= image_tag job.logo %>
+                    <% end %>
                   <div class="card-body-exp">
                     <div class="d-flex justify-content-between">
                     <p class = "title-job"> <%= icon('fas', 'crown') %> <%=job.title%> </p>
