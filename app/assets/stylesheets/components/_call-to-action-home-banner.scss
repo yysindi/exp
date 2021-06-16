@@ -36,9 +36,9 @@
   margin-left: -20px;
   margin-bottom: -10px;
   height: 80px;
-  background-color: #7B61F8;
+  background-color: #7b61f8;
   color: #fff;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: bold;
   font-size: 40px;
   border-radius: 3px;
@@ -47,15 +47,19 @@
 }
 
 .cta-purple-button:hover {
-  border-color: #7B61F8;
+  border-color: #7b61f8;
   color: #fff;
-  background-image: -webkit-linear-gradient(45deg, #FF85EA 50%, transparent 50%);
-  background-image: linear-gradient(45deg, #FF85EA 50%, transparent 50%);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    #ff85ea 50%,
+    transparent 50%
+  );
+  background-image: linear-gradient(45deg, #ff85ea 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
   -webkit-transition: background 500ms ease-in-out;
   transition: background 500ms ease-in-out;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .paragraph-normal-font {
@@ -118,7 +122,6 @@
   h2 {
     font-size: 0.8em;
     margin-bottom: 1rem;
-
   }
   h4 {
     font-size: 0.9em;
