@@ -7,8 +7,8 @@ Job.destroy_all
 User.destroy_all
 
 puts "creating users..."
-user_first = User.create(name: 'Jared', email: 'jared@test.com', password: '123456', profile_description: "recent psychology graduate looking to get a job using react", profile_img:"https://kitt.lewagon.com/placeholder/users/monsieurpaillard", linked_in: "https://www.linkedin.com/in/jared/", desired_industry: "Finance", twitter_url:"https://twitter.com/royalfamily")
-user_second = User.create(name: 'Keith', email: 'keith@test.com', password: '123456', profile_description: "recent psychology graduate looking to get a job using ruby", profile_img:"https://kitt.lewagon.com/placeholder/users/monsieurpaillard", linked_in: "https://www.linkedin.com/in/keith/", desired_industry: "technology", twitter_url:"https://twitter.com/nytimes")
+user_first = User.create(name: 'Jared', email: 'jared@test.com', password: '123456', profile_description: "I'm a recent psychology graduate who attended the Le Wagon Lisbon bootcamp in March 2021. I'm looking for short gigs in London-based startups (or remote) in digital marketing and/or software development.", profile_img:"https://kitt.lewagon.com/placeholder/users/monsieurpaillard", linked_in: "https://www.linkedin.com/in/jared/", desired_industry: "Finance", twitter_url:"https://twitter.com/royalfamily")
+user_second = User.create(name: 'Keith', email: 'keith@test.com', password: '123456', profile_description: "I graduated last autumn with a master's in Islamic History from Durham university. I'm very passionate about HR, and would love to complete gigs for companies based in the North of England.", profile_img:"https://kitt.lewagon.com/placeholder/users/monsieurpaillard", linked_in: "https://www.linkedin.com/in/keith/", desired_industry: "technology", twitter_url:"https://twitter.com/nytimes")
 
 puts "creating jobs..."
 
