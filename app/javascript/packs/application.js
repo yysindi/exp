@@ -23,10 +23,11 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import 'previewImageOnFileSelect';
+// import 'previewImageOnFileSelect';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import {searchquery} from '../channels/jobs'
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -34,7 +35,6 @@ document.addEventListener('turbolinks:load', () => {
   searchquery();
 });
 
-import { initSweetalert } from '../plugins/init_sweetalert';
 
 initSweetalert('#sweet-alert-demo', {
   title: "You've already applied to this job!",

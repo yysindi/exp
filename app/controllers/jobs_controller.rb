@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+
   def index
     @jobs = Job.page(params[:page])
     if params[:ids].present?
@@ -46,5 +47,4 @@ class JobsController < ApplicationController
         redirect_to jobs_path(scroll: true, ids: params[:ids])
       end
   end
-
 end
