@@ -9,7 +9,7 @@ class ApplicationsController < ApplicationController
     @applied = @user.applications.find_by(job_id: @job.id)
     if @application.save
       @applied = true
-      ApplicationNotification.with(post: @post).deliver(current_user)
+      ApplicationNotification.with(job: @job).deliver(current_user)
       redirect_to job_path(@job)
     else
       render "jobs/show"

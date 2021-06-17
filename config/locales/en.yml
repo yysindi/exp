@@ -33,4 +33,4 @@ en:
   hello: "Hello world"
   notifications:
     application_notification:
-      message: "You successfully applied to a new gig!"
+      message: "You successfully applied to a new gig at %{job}!"
