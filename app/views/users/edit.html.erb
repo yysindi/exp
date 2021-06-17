@@ -10,7 +10,9 @@
 <%= f.input :profile_description, as: :text, :input_html => {:rows => 5} %>
 <%= f.input :linked_in %>
 <%= f.input :twitter_url %>
-<%= f.input :photo, as: :file %>
+<%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+<%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo', id: 'photo-input'}, label: '📷 Upload a photo' %>
+
 </div>
 <div class="form-actions" >
 <%= f.button :submit, "Update Profile", class: "btn btn-primary form-btn-100" %>
