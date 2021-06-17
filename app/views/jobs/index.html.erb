@@ -1,7 +1,9 @@
 <div class="whole-page-container-jobs">
 <div class="whole-page-container-jobs">
 <%= image_tag "background-ribbons/background-gradient-01.png", :class => "background-gradient-jobs"%>
+  
   <h1 class="jobs-index-title">Check out our Live Gigs!</h1>
+
   <div class="container d-flex justify-content-center ">
     <div class="form-search">
 
@@ -17,7 +19,7 @@
               <div id="second-search-box">
                 <%= f.input :industry, collection: Job.pluck(:industry).uniq.sort, prompt: 'Select Industry',selected: params.dig(:search,:industry), label: false %>
               </div>
-              <div class = "d-flex align-items-start">
+              <div class = "d-flex align-items-start ml-1 mt-1">
             <%= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false, input_html: {value: params.dig(:search, :paid), class: 'paid_btn'}, label: 'paid' %>
             <%= f.input :location, as: :boolean, checked_value: true, unchecked_value: false, input_html: {value: params.dig(:search, :location) == "true", class: 'remote_btn ml'}, label: 'remote' %>
               </div>
@@ -33,7 +35,9 @@
       <div id="jobs" class = "flex-row justify-content-start ">
         <% @jobs.each do |job| %>
               <div class="card d-flex card-job">
-                  <%= image_tag job.logo %>
+                    <%= link_to job_path(job) do %>
+                      <%= image_tag job.logo %>
+                    <% end %>
                   <div class="card-body-exp">
                     <div class="d-flex justify-content-between">
                     <p class = "title-job"> <%= icon('fas', 'crown') %> <%=job.title%> </p>

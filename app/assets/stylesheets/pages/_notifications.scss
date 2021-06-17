@@ -10,6 +10,7 @@
   border-radius: 3px;
   width: 400px;
   margin-top: 20px;
+  background: #7B61F8;
 }
 
 .notification-box-successful-application:hover {
@@ -17,18 +18,34 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
+  background: #7B61F8;
   border: 1px solid gray;
   box-shadow: 0 10px 6px -6px #909090a6;
   padding: 16px;
   border-radius: 3px;
   width: 400px;
   margin-top: 20px;
-  zoom: 105%;
+  transform: scale(1.01);
+}
+
+.old-news-box {
+  position: absolute;
+  font-family: Press Start 2P;
+  font-weight: bold;
+  font-size: 24px;
+  transform: rotate(-5deg);
+  margin-top: 5px;
+  margin-left: 20px;
+  color: grey;
+}
+
+.old-news-box-hidden {
+  display: none !important;
 }
 
 .notifications-index-title {
   margin-bottom: 20px;
+  margin-top: 6vh;
 }
 
 .emoji-sunglasses {
@@ -41,23 +58,62 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin: 10vh;
-  background: white;
+  padding-bottom: 2vh;
   padding: 20px;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ), asset-url("background-ribbons/background-gradient-01.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .notification-message {
   font-family: "Quicksand";
   font-weight: bolder;
   font-size: 18px;
-  color: black;
+  color: white;
+  padding-left: 20px;
 }
 
 .notification-message:hover {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .notification-read {
-  background: red;
+  background: #7B61F8;
+  color: black;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    );
+}
+
+.notification-read:hover {
+  background: #7B61F8;
+  color: black;
+  text-decoration: none;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    );
+}
+.end-of-notifications {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Quicksand;
+  font-weight: bolder;
+  padding-right: 4vw;
+  padding-left: 4vw;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+  width: 30%;
+  margin-top: 4vh;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-bottom: 5vh;
+  color: grey;
 }

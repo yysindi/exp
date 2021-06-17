@@ -22,16 +22,16 @@
           <div class="last-box">
             <div class="job-info">
               <p>Start: <%= @job.start_date %></p>
-              <p><%= icon('fas', 'star') %><%= @job.industry %> </p>
+              <p><%= icon('fas', 'star') %>  <%= @job.industry %> </p>
             </div>
             <div class="job-info">
             <p>End: <%= @job.end_date %></p>
-              <p><%= icon('fas', 'map-marker') %> <%= @job.location %></p>
+              <p><%= icon('fas', 'map-marker') %>  <%= @job.location %></p>
             </div>
             <div class="job-info">
               <% if @job.paid %>
-              <p><%= icon('fas', 'money-bill') %>Loot: £<%= @job.compensation %> per week</p>
-              <p><%= icon('fas', 'arrow-up') %>Level Up: <%= @exp_score.sum(:exp_value) %>  <%= @job.industry %> </p>
+              <p><%= icon('fas', 'money-bill') %>  Loot: £<%= @job.compensation %> per week</p>
+              <p><%= icon('fas', 'arrow-up') %>  Level Up: <%= @exp_score.sum(:exp_value) %>  <%= @job.industry %> </p>
               <% end %>
             </div>
           </div>

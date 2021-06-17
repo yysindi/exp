@@ -37,9 +37,9 @@ document.addEventListener('turbolinks:load', () => {
 import { initSweetalert } from '../plugins/init_sweetalert';
 
 initSweetalert('#sweet-alert-demo', {
-  title: "A nice alert",
-  text: "This is a great alert, isn't it?",
-  icon: "success"
+  title: "You've already applied to this job!",
+  text: "Your application is on its way",
+  icon: 'https://iconarchive.com/download/i108225/google/noto-emoji-smileys/10012-smiling-face-with-sunglasses.ico',
 }, (value) => {
   console.log(value);
 });

@@ -36,39 +36,36 @@
   margin-left: -20px;
   margin-bottom: -10px;
   height: 80px;
-  background-color: #7B61F8;
+  background-color: #7b61f8;
   color: #fff;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: bold;
   font-size: 40px;
   border-radius: 3px;
   z-index: 100;
+  text-decoration: none;
 }
 
 .cta-purple-button:hover {
-  border-color: #7B61F8;
+  border-color: #7b61f8;
   color: #fff;
-  background-image: -webkit-linear-gradient(45deg, #FF85EA 50%, transparent 50%);
-  background-image: linear-gradient(45deg, #FF85EA 50%, transparent 50%);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    #ff85ea 50%,
+    transparent 50%
+  );
+  background-image: linear-gradient(45deg, #ff85ea 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
   -webkit-transition: background 500ms ease-in-out;
   transition: background 500ms ease-in-out;
+  text-decoration: none;
 }
 
-.paragraph-normal-font {
-  font-size: 28px;
-}
-
-#paragraph-normal-font-bigger {
-  font-size: 28px;
-}
-.paragraph-heavy-font {
-  font-size: 28px;
-}
 
 #central-cta-title {
-  font-size: 32px;
+  font-size: 42px;
+  text-align: left;
 }
 
 .cta-explainer {
@@ -80,7 +77,7 @@
   box-shadow: 0 10px 6px -6px #909090a6;
   padding: 21px 36px;
   border-radius: 3px;
-  margin-left: 60px;
+  margin-left: 120px;
   height: 400px;
   width: 600px;
   h1 {
@@ -105,7 +102,7 @@
   box-shadow: 0 10px 6px -6px #909090a6;
   padding: 21px 36px;
   border-radius: 3px;
-  margin-left: 140px;
+  margin-left: 120px;
   margin-top: 20px;
   height: 350px;
   width: 600px;
@@ -116,7 +113,6 @@
   h2 {
     font-size: 0.8em;
     margin-bottom: 1rem;
-
   }
   h4 {
     font-size: 0.9em;
