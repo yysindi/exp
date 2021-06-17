@@ -8,7 +8,7 @@
     <div class="form-search">
 
           <%= simple_form_for :search, url: search_path,
-          method: :post, remote: true  ,id:"search-form", html:{class:"m-3 w-100"} do |f| %>
+          method: :post, remote: true, id:"search-form", html:{class:"m-3 w-100"} do |f| %>
            <div class = "search-bar">
               <div id="first-search-box">
                 <%= f.input :query, input_html: {class: "form-control", value: params.dig(:search, :query) },
