@@ -18,14 +18,14 @@ class ApplicationNotification < Noticed::Base
 #   }
 # end
 
-  # Add required params
-  #
-  # param :post
+# Add required params
+
+# param :job
 
   # Define helper methods to make rendering easier.
   #
   def message
-    t(".message")
+    t(".message", job: params[:job].company_name)
   end
 
   def url(user_id, notification)
