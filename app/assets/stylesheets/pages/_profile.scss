@@ -103,9 +103,39 @@
   }
 }
 .status-applied {
+  width: 40%;
+  margin: 0 auto;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background-color: #F6E7A3;
+  color: #E58104;
   font-weight: 200;
-  margin-top: 1px;
-  margin-bottom: 1px;
+  border-radius: 50rem;
+  border: 1px solid #E58104;
+}
+
+.status-accepted {
+  width: 40%;
+  margin: 0 auto;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background-color: #C8DCE9;
+  color: #090186;
+  font-weight: 200;
+  border-radius: 50rem;
+  border: 1px solid #090186;
+}
+
+.status-completed {
+  width: 40%;
+  margin: 0 auto;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background-color: #DBFDBB;
+  color: #3B681A;
+  font-weight: 200;
+  border-radius: 50rem;
+  border: 1px solid #3B681A;
 }
 
 .logo-img {

@@ -88,9 +88,13 @@
           <div class="card d-flex card-job" style="width:202px;">
             <%= image_tag application.job.logo, class:"logo-img" %>
             <div class="card-body profile-card">
-              <p style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=application.job.title%> </p>
-              <% if application.status %>
-              <p class="status-applied">Status: <%= application.status %></p>
+              <p class="mb-3" style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=application.job.title%> </p>
+              <% if application.status == 'applied' %>
+                <p class="status-applied"><%= application.status %></p>
+              <% elsif application.status == 'accepted' %>
+                <p class="status-accepted"><%= application.status %></p>
+              <% elsif application.status == 'completed' %>
+                <p class="status-completed"><%= application.status %></p>
               <% end %>
             </div>
           </div>
