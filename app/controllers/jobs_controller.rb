@@ -43,7 +43,7 @@ class JobsController < ApplicationController
       if params[:showpage]
         redirect_to job_path(Job.find(params[:id]))
       else
-        redirect_to jobs_path(scroll: true)
+        redirect_to jobs_path(scroll: true, ids: params[:ids])
       end
   end
 
