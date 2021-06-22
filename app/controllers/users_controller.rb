@@ -27,6 +27,28 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @users = User.all
+    if params.dig(:search, :query).present?
+      sql_query = "title ILIKE :query OR description ILIKE :query OR company_name ILIKE :query"
+      @users = @users.where(sql_query, query: "%#{params[:search][:query]}%")
+    end
+     if params.dig(:search, :desired_industry).present?
+       @users = @users.where(desired_industry: params[:search][:desired_industry])
+     end
+
+    if params.dig(:search, :paid).present?
+      @users = @users.where(paid: params[:search][:paid])
+    end
+
+    if params.dig(:search, :location).present?
+      sql_query = 'location ILIKE :location'
+      @users = @users.where(sql_query, location: "%Remote%")
+    end
+
+    redirect_to users_path(ids: @users.pluck(:id))
+  end
+
   private
 
   def user_params
