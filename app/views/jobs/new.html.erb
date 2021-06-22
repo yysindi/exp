@@ -1,1 +1,16 @@
 <h1>new job form here</h1>
+
+<%= simple_form_for(@job) do |f| %>
+  <div class="form-inputs" style="width: 100%;">
+    <%= f.input :title %>
+    <%= f.input :industry %>
+    <%= f.input :industry %>
+    <%= f.input :industry %>
+    <%= f.input :industry %>
+    <%= f.input :industry %>
+    <%= f.input :description, as: :text, :input_html => {:rows => 5} %>
+  </div>
+  <div class="form-actions" >
+    <%= f.button :submit, "Update Profile", class: "btn btn-primary form-btn-100" %>
+  </div>
+<% end %>
