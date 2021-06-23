@@ -1,10 +1,19 @@
 <h1>new job form here</h1>
 
 <%= simple_form_for(@job) do |f| %>
-  <div class="form-inputs" style="width: 100%;">
+  <div class="form-inputs" style="width: 40%; margin-left: 20%;">
     <%= f.input :title %>
     <%= f.input :industry %>
+    <%= f.input :logo %>
+    <%= f.input :company_name %>
+    <%= f.input :about %>
+    <%= f.input :website %>
     <%= f.input :description, as: :text, :input_html => {:rows => 5} %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :location %>
+    <%= f.input :paid, as: :select, required: true %>
+    <%= f.input :compensation %>
   </div>
   <div class="form-actions" >
     <%= f.button :submit, "Submit Jobs", class: "btn btn-primary form-btn-100" %>

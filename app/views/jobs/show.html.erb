@@ -47,7 +47,11 @@
           <a class="btn apply-btn disabled" href="#">Closed</a>
         <% end %>
         <div class="white-box">
-          <%= image_tag @job.logo %>
+          <% unless @job.logo == nil %>
+            <%= image_tag @job.logo %>
+          <% else %>
+            <%= image_tag "exp-logo/logo-01.png" %>
+          <% end %>
           <h4> <%= @job.company_name %></h4>
           <p><b>About the clan:</b> <%= @job.about %></p>
           <p><%= link_to "Company website", @job.website, target: '_blank' %></p>

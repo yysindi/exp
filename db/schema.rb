@@ -79,13 +79,13 @@ ActiveRecord::Schema.define(version: 2021_06_23_165924) do
     t.string "industry"
     t.string "title"
     t.text "description"
-    t.string "logo"
+    t.string "logo", default: "exp-logo/logo-01.png"
     t.string "website"
     t.boolean "paid"
     t.integer "compensation"
     t.date "start_date"
     t.date "end_date"
-    t.boolean "accepting_applications"
+    t.boolean "accepting_applications", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "completed", default: false

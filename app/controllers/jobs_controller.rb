@@ -24,13 +24,11 @@ class JobsController < ApplicationController
     @job.updated_at = Time.now
     if @job.save
       flash[:notice] = "Gig successfully created"
-      sleep 5
-      raise
+      sleep 2
       redirect_to job_path(@job)
     else
       flash[:error] = "Gig creation was unsuccessful"
-      sleep 3
-      raise
+      sleep 2
       redirect_to new_job_path
     end
   end
@@ -50,6 +48,9 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
+
+    flash[:notice] = "Gig successfully deleted"
+    sleep 2
 
     redirect_to jobs_path
   end

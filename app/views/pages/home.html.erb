@@ -26,7 +26,11 @@
           <% @jobs.each do |job| %>
             <%= link_to job_path(id: job.id), class: "top-job-box", id:"top-job-box-01" do %>
               <div class="top-job-inner" id="top-job-leftmost-inner">
-                <%= image_tag job.logo, class: "top-gigs-logo"%>
+                <% unless job.logo == nil %>
+                  <%= image_tag job.logo, class: "top-gigs-logo" %>
+                <% else %>
+                  <%= image_tag "exp-logo/logo-01.png", class: "top-gigs-logo" %>
+                <% end %>
               </div>
               <div class="top-job-inner" id="top-job-middle-inner">
                 <div class="top-job-inner-upper-box">
