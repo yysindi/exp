@@ -47,7 +47,7 @@
           <a class="btn apply-btn disabled" href="#">Closed</a>
         <% end %>
         <div class="white-box">
-          <% unless @job.logo == nil %>
+          <% if @job.logo.present? %>
             <%= image_tag @job.logo %>
           <% else %>
             <%= image_tag "exp-logo/logo-01.png" %>

@@ -22,6 +22,7 @@ class JobsController < ApplicationController
     @job.user = @user
     @job.created_at = Time.now
     @job.updated_at = Time.now
+    @job.accepting_applications = true
     if @job.save
       flash[:notice] = "Gig successfully created"
       sleep 2
