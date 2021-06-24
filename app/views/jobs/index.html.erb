@@ -1,5 +1,4 @@
 <div class="whole-page-container-jobs">
-<div class="whole-page-container-jobs">
 <%= image_tag "background-ribbons/background-gradient-01.png", :class => "background-gradient-jobs"%>
   
   <h1 class="jobs-index-title">Check out our Live Gigs!</h1>
@@ -28,9 +27,6 @@
       <% end %>
     </div>
   </div>
-  <div>
-    <p class = "d-flex justify-content-center" > Your search has <%= @jobs.total_count %> results</p>
-  </div>
   <div class="container">
       <div id="jobs" class = "flex-row justify-content-start ">
         <% @jobs.each do |job| %>
@@ -56,22 +52,10 @@
                     <p class = "title-job"> <%= icon('fas', 'map-marker') %> <%=job.location%> </p>
                     <p class = "title-job"> <%= icon('fas', 'industry') %> <%=job.industry%> </p>
                     <%= link_to "Find out more", job_path(job), class: "btn btn-success d-flex justify-content-center apply-btn-jobs"%>
-
                   </div>
               </div>
         <% end %>
       </div>
-      <% if @jobs.last_page?  %>
-        <div>
-          <h3 class="end-of-jobs">That's all the jobs that match your criteria. Please reset your filters for more gigs.</h3>
-        </div>
-      <% end %>
-      <div class="paginate">
-
-        <p><%= page_entries_info @jobs %></p>
-        <p><%= paginate @jobs %></p>
-      </div>
-  </div>
 </div>
 
 <% if params[:scroll].present? %>

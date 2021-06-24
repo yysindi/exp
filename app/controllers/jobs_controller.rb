@@ -1,18 +1,15 @@
 class JobsController < ApplicationController
-skip_after_action :verify_policy_scoped, :only => :index
+before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
-    @jobs = Job.page(params[:page])
+    @jobs = policy_scope(Job)
     if params[:ids].present?
       @jobs = @jobs.where(id: params[:ids])
     end
-    authorize @jobs
   end
 
   def show
-    @job = Job.find(params[:id])
     @exp_score = @job.exp_scores
-    authorize @job
   end
 
   def new
@@ -27,6 +24,7 @@ skip_after_action :verify_policy_scoped, :only => :index
     @job.created_at = Time.now
     @job.updated_at = Time.now
     @job.accepting_applications = true
+    authorize @job
     if @job.save
       flash[:notice] = "Gig successfully created"
       sleep 2
@@ -39,11 +37,9 @@ skip_after_action :verify_policy_scoped, :only => :index
   end
 
   def edit
-    @job = Job.find(params[:id])
   end
 
   def update
-    @job = Job.find(params[:id])
     @job.update(job_params)
     @job.updated_at = Time.now
 
@@ -51,7 +47,6 @@ skip_after_action :verify_policy_scoped, :only => :index
   end
 
   def destroy
-    @job = Job.find(params[:id])
     @job.destroy
 
     flash[:notice] = "Gig successfully deleted"
@@ -62,6 +57,7 @@ skip_after_action :verify_policy_scoped, :only => :index
 
   def search
     @jobs = Job.all
+    authorize @job
     if params.dig(:search, :query).present?
       sql_query = "title ILIKE :query OR description ILIKE :query OR company_name ILIKE :query"
       @jobs = @jobs.where(sql_query, query: "%#{params[:search][:query]}%")
@@ -83,6 +79,7 @@ skip_after_action :verify_policy_scoped, :only => :index
   end
 
   def toggle_favorite
+    authorize @job
     if !Job.find(params[:id]).favorited_by?(current_user)
         current_user.favorite(Job.find(params[:id]))
     else
@@ -97,6 +94,11 @@ skip_after_action :verify_policy_scoped, :only => :index
   end
 
   private
+
+  def set_job
+    @job = Job.find(params[:id])
+    authorize @job
+  end
 
   def job_params
     params.require(:job).permit(:industry, :title, :description, :logo, :website, :paid, :compensation, :start_date, :end_date, :accepting_applications, :created_at, :updated_at, :completed, :company_name, :location, :about)
