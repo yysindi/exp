@@ -17,10 +17,21 @@ class JobsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @job = Job.new(job_params)
-    @job.save
-
-    redirect_to job_path(@job)
+    @job.user = @user
+    @job.created_at = Time.now
+    @job.updated_at = Time.now
+    @job.accepting_applications = true
+    if @job.save
+      flash[:notice] = "Gig successfully created"
+      sleep 2
+      redirect_to job_path(@job)
+    else
+      flash[:error] = "Gig creation was unsuccessful"
+      sleep 2
+      redirect_to new_job_path
+    end
   end
 
   def edit
@@ -30,6 +41,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     @job.update(job_params)
+    @job.updated_at = Time.now
 
     redirect_to job_path(@job)
   end
@@ -37,6 +49,9 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
+
+    flash[:notice] = "Gig successfully deleted"
+    sleep 2
 
     redirect_to jobs_path
   end

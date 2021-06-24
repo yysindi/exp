@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_22_150705) do
+ActiveRecord::Schema.define(version: 2021_06_24_093518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,9 @@ ActiveRecord::Schema.define(version: 2021_06_22_150705) do
     t.string "company_name"
     t.string "location"
     t.text "about"
+    t.bigint "user_id"
+    t.float "currency"
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -137,4 +140,5 @@ ActiveRecord::Schema.define(version: 2021_06_22_150705) do
   add_foreign_key "applications", "users"
   add_foreign_key "exp_scores", "jobs"
   add_foreign_key "exp_scores", "users"
+  add_foreign_key "jobs", "users"
 end

@@ -26,7 +26,11 @@
           <% @jobs.each do |job| %>
             <%= link_to job_path(id: job.id), class: "top-job-box", id:"top-job-box-01" do %>
               <div class="top-job-inner" id="top-job-leftmost-inner">
-                <%= image_tag job.logo, class: "top-gigs-logo"%>
+                <% if job.logo.present? %>
+                  <%= image_tag job.logo, class: "top-gigs-logo" %>
+                <% else %>
+                  <%= image_tag "exp-logo/logo-01.png", class: "top-gigs-logo" %>
+                <% end %>
               </div>
               <div class="top-job-inner" id="top-job-middle-inner">
                 <div class="top-job-inner-upper-box">
@@ -38,7 +42,7 @@
               </div>
               <div class="top-job-inner" id="top-job-rightmost-inner">
                 <div class="top-job-inner-upper-box">
-                <h3 class="weighted-h3">£<%= [300, 350, 400, 450, 500].sample %> p.w.</h3>
+                <h3 class="weighted-h3">£<%= job.compensation %> p.w.</h3>
                 </div>
                 <div class="top-job-inner-lower-box">
                 <h3 class="weightless-h3"><%= job.location %></h3>

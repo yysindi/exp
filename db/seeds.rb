@@ -27,6 +27,8 @@ job1 = Job.create(title: "Front End Developer",
   company_name: 'Beyond Retail',
   completed: true)
 
+puts "creating job 1"
+
 job2 = Job.create(title: "Product design Intern",
   description: 'As a New Product Innovation (NPI) graduate, you’ll be sketching, prototyping, testing, failing and refining to deliver the high standards of product development Dyson is known for, working on ideas that will disrupt and transform markets. You’ll need to be thoroughly hands-on, practically applying your technical knowledge with a creative flair to ensure that all engineering problems are resolved thoroughly.',
   location: 'Bath', 
@@ -42,6 +44,8 @@ job2 = Job.create(title: "Product design Intern",
   company_name: 'Crown commertial service',
   completed: true)
 
+puts "creating job 2"
+
 job3 = Job.create(title: "Junior analyst",
   description: 'Our Junior Commercial Analyst will have contact with most departments in the business on a weekly basis including our warehouse, transport team, quality team and our Outbases, so we need someone who can communicate with people on all levels in a friendly and professional way. You will report to the Commercial Manager and Senior Commercial Analyst and work very closely with our whole Commercial team to make sure we always have a full understanding of the cost areas and P&L.',
   location: 'London', 
@@ -56,6 +60,8 @@ job3 = Job.create(title: "Junior analyst",
   accepting_applications: true, 
   company_name: 'Frasers group',
   completed: true)
+
+puts "creating job 3"
 
 job4 = Job.create(title: "HR Intern",
   description: 'Kortext has seen significant growth in the last 12 months and this role is key to driving our expansion by continuing to build on this success. This varied role will help develop strong relationships with internal stakeholders supporting with all aspects of HR from recruitment to onboarding. Reporting into the HR Director this role requires an enthusiastic HR assistant looking for a challenge and growth in an exciting company. Learning from an experienced team this role would be perfect for a graduate or someone looking to take their first steps into the world of HR and Recruitment.',
