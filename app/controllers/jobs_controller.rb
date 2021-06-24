@@ -1,19 +1,23 @@
 class JobsController < ApplicationController
+skip_after_action :verify_policy_scoped, :only => :index
 
   def index
     @jobs = Job.page(params[:page])
     if params[:ids].present?
       @jobs = @jobs.where(id: params[:ids])
     end
+    authorize @jobs
   end
 
   def show
     @job = Job.find(params[:id])
     @exp_score = @job.exp_scores
+    authorize @job
   end
 
   def new
     @job = Job.new
+    authorize @job
   end
 
   def create
