@@ -21,17 +21,15 @@ class JobPolicy < ApplicationPolicy
     true
   end
 
-# authentication for these actions to be completed later in line with view access
-
   def update?
-    false
+    record.user == user || user.admin
   end
 
   def edit?
-    false
+    record.user == user || user.admin
   end
 
   def destroy?
-    false
+    record.user == user || user.admin
   end
 end
