@@ -10,7 +10,7 @@ class JobApplicationsController < ApplicationController
     if @job_application.save
       @applied = true
       ApplicationNotification.with(job: @job).deliver(current_user)
-      redirect_to job_path(@job)
+      redirect_to job_job_applications_path(@job)
     else
       render "jobs/show"
     end

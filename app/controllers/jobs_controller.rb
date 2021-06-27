@@ -3,7 +3,7 @@ skip_before_action :authenticate_user!, only: [:index]
 before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
-    @jobs = policy_scope(Job)
+    @jobs = Job.all
     if params[:ids].present?
       @jobs = @jobs.where(id: params[:ids])
     end
@@ -16,7 +16,6 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
   def new
     @user = current_user
     @job = Job.new
-    authorize @user
   end
 
   def create
@@ -26,7 +25,6 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
     @job.created_at = Time.now
     @job.updated_at = Time.now
     @job.accepting_applications = true
-    authorize @user
     if @job.save
       flash[:notice] = "Gig successfully created"
       sleep 2
@@ -81,7 +79,6 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
   end
 
   def toggle_favorite
-    authorize @job
     if !Job.find(params[:id]).favorited_by?(current_user)
         current_user.favorite(Job.find(params[:id]))
     else
@@ -99,7 +96,6 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def set_job
     @job = Job.find(params[:id])
-    authorize @job
   end
 
   def job_params

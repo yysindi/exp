@@ -42,7 +42,7 @@
       <div class="col-lg-4 col-sm-12">
         <button id="sweet-alert-demo"><% if @job.accepting_applications %>
           <%= link_to "#{current_user.job_applications.find_by(job_id: @job.id) ? "Applied!" : "Apply"}",
-            job_applications_path(job_id: @job.id),
+            job_job_applications_path(job_id: @job.id),
             method: :post,
             class: "btn cta-purple-button-jobs-show #{current_user.job_applications.find_by(job_id: @job.id) ? "disabled" : "canApply"}" %></button>
         <% else %>

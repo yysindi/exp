@@ -1,7 +1,7 @@
 class Job < ApplicationRecord
 
-  has_many :users, through: :applications
-  has_many :applications, dependent: :destroy
+  has_many :users, through: :job_applications
+  has_many :job_applications, dependent: :destroy
   has_many :exp_scores
   belongs_to :user
 

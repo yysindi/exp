@@ -10,12 +10,10 @@ class UsersController < ApplicationController
     # @exp_scores = @user.exp_scores.group(:industry)
     @favorites = current_user.all_favorited
     @exp_scores = @user.exp_scores
-    authorize @user
   end
 
   def edit
     @user = current_user
-    authorize @user
   end
 
   def update
