@@ -1,11 +1,9 @@
-class JobApplicationPolicy < ApplicationPolicy
+class ExpScorePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
-
-# authentication for these actions to be completed later in line with view access
 
   def index?
     true
@@ -16,13 +14,11 @@ class JobApplicationPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    user.admin
   end
 
-# except create, as this is done already
-
   def create?
-    true
+    user.admin
   end
 
   def update?

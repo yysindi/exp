@@ -22,26 +22,14 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    if record == user || user.admin
-      true
-    else
-      false
-    end
+    record == user || user.admin
   end
 
   def edit?
-    if record == user || user.admin
-      true
-    else
-      false
-    end
+    record == user || user.admin
   end
 
   def destroy?
-    if record == user || user.admin
-      true
-    else
-      false
-    end
+    record == user || user.admin
   end
 end
