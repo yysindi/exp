@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+skip_before_action :authenticate_user!, only: [:index]
 before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -13,8 +14,9 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
   end
 
   def new
+    @user = current_user
     @job = Job.new
-    authorize @job
+    authorize @user
   end
 
   def create
@@ -24,7 +26,7 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
     @job.created_at = Time.now
     @job.updated_at = Time.now
     @job.accepting_applications = true
-    authorize @job
+    authorize @user
     if @job.save
       flash[:notice] = "Gig successfully created"
       sleep 2

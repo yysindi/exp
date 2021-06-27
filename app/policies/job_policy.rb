@@ -3,21 +3,33 @@ class JobPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-  end
 
-  def new?
-    return true
-  end
+    def index?
+      true
+    end
 
-  def create?
-    return true
-  end
+    def show?
+      true
+    end
 
-  def index?
-    return true
-  end
+    def create?
+      record.user == user || user.admin
+    end
 
-  def show?
-    return true
+    def new?
+      create?
+    end
+
+    def update?
+      user == record.user || user.admin
+    end
+
+    def edit?
+      update?
+    end
+
+    def destroy?
+      user == record.user || user.admin
+    end
   end
 end

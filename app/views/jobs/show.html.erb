@@ -6,10 +6,12 @@
         <div class="white-box d-flex justify-content-between">
           <h1><%= @job.title %></h1>
           <%= link_to toggle_favorite_path(@job, showpage: true), method: :post, remote: true do %>
-            <% if !@job.favorited_by?(current_user) %>
-              <i style="font-size: 28px" class="far fa-heart"></i>
-            <% else %>
-              <i style="font-size: 28px" class="fas fa-heart"></i>
+            <% unless @user == nil %>
+              <% if !@job.favorited_by?(current_user) %>
+                <i style="font-size: 28px" class="far fa-heart"></i>
+              <% else %>
+                <i style="font-size: 28px" class="fas fa-heart"></i>
+              <% end %>
             <% end %>
           <% end %>
         </div>
