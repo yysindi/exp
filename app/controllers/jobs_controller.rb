@@ -3,7 +3,8 @@ skip_before_action :authenticate_user!, only: [:index]
 before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
-    @jobs = Job.all
+    @jobs = policy_scope(Job).order(created_at: :desc)
+    authorize @jobs
     if params[:ids].present?
       @jobs = @jobs.where(id: params[:ids])
     end
@@ -11,16 +12,19 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def show
     @exp_score = @job.exp_scores
+    authorize @job
   end
 
   def new
     @user = current_user
     @job = Job.new
+    authorize @job
   end
 
   def create
     @user = current_user
     @job = Job.new(job_params)
+    authorize @job
     @job.user = @user
     @job.created_at = Time.now
     @job.updated_at = Time.now
@@ -37,9 +41,11 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
+    authorize @job
   end
 
   def update
+    authorize @job
     @job.update(job_params)
     @job.updated_at = Time.now
 
@@ -47,6 +53,7 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
+    authorize @job
     @job.destroy
 
     flash[:notice] = "Gig successfully deleted"

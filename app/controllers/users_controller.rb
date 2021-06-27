@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = policy_scope(User).order(created_at: :desc)
+    authorize @users
   end
 
   def show
     @user = User.find(params[:id])
+    authorize @user
     @job_applications = JobApplication.where(user_id: @user.id)
     # @exp_scores = @user.exp_scores.group(:industry)
     @favorites = current_user.all_favorited
@@ -13,11 +15,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
+    authorize @user
   end
 
   def update
     @user = User.find(params[:id])
+    authorize @user
     @user.update(user_params)
     if @user
       redirect_to user_path(@user)
