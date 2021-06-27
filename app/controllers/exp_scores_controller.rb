@@ -1,3 +1,2 @@
 class ExpScoresController < ApplicationController
-
 end
