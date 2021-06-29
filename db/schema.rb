@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 2021_06_27_165402) do
     t.string "header_img"
     t.text "interesting_fact"
     t.string "where_want_to_work"
+# IMPORTANT! CHANGE BELOW IN PRODUCTION TO FALSE
     t.boolean "admin", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
