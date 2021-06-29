@@ -4,7 +4,7 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
     @jobs = policy_scope(Job).order(created_at: :desc)
-    authorize @jobs
+    auth_jobs
     if params[:ids].present?
       @jobs = @jobs.where(id: params[:ids])
     end
@@ -12,19 +12,19 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def show
     @exp_score = @job.exp_scores
-    authorize @job
+    auth_job
   end
 
   def new
     @user = current_user
     @job = Job.new
-    authorize @job
+    auth_job
   end
 
   def create
     @user = current_user
     @job = Job.new(job_params)
-    authorize @job
+    auth_job
     @job.user = @user
     @job.created_at = Time.now
     @job.updated_at = Time.now
@@ -41,11 +41,11 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
-    authorize @job
+    auth_job
   end
 
   def update
-    authorize @job
+    auth_job
     @job.update(job_params)
     @job.updated_at = Time.now
 
@@ -53,7 +53,7 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
-    authorize @job
+    auth_job
     @job.destroy
 
     flash[:notice] = "Gig successfully deleted"
@@ -64,22 +64,27 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def search
     @jobs = Job.all
-    authorize @job
+    auth_jobs
+
     if params.dig(:search, :query).present?
       sql_query = "title ILIKE :query OR description ILIKE :query OR company_name ILIKE :query"
       @jobs = @jobs.where(sql_query, query: "%#{params[:search][:query]}%")
+      auth_jobs
     end
-     if params.dig(:search, :industry).present?
-       @jobs = @jobs.where(industry: params[:search][:industry])
-     end
+    if params.dig(:search, :industry).present?
+      @jobs = @jobs.where(industry: params[:search][:industry])
+      auth_jobs
+    end
 
     if params.dig(:search, :paid).present?
       @jobs = @jobs.where(paid: params[:search][:paid])
+      auth_jobs
     end
 
     if params.dig(:search, :location).present?
       sql_query = 'location ILIKE :location'
       @jobs = @jobs.where(sql_query, location: "%Remote%")
+      auth_jobs
     end
 
     redirect_to jobs_path(ids: @jobs.pluck(:id))
@@ -87,19 +92,32 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def toggle_favorite
     if !Job.find(params[:id]).favorited_by?(current_user)
-        current_user.favorite(Job.find(params[:id]))
+      current_user.favorite(Job.find(params[:id]))
+      auth_job
     else
       current_user.unfavorite(Job.find(params[:id]))
+      auth_job
     end
 
-      if params[:showpage]
-        redirect_to job_path(Job.find(params[:id]))
-      else
-        redirect_to jobs_path(scroll: true, ids: params[:ids])
-      end
+    if params[:showpage]
+      redirect_to job_path(Job.find(params[:id]))
+
+    else
+      redirect_to jobs_path(scroll: true, ids: params[:ids])
+    end
   end
 
   private
+
+  def auth_job
+    authorize @job
+  end
+
+  def auth_jobs
+    @jobs.each do |job|
+      authorize job
+    end
+  end
 
   def set_job
     @job = Job.find(params[:id])

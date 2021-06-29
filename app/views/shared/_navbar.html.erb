@@ -15,10 +15,10 @@
           <%= link_to "Find Gigs", jobs_path, class: "nav-link", id: "gigs-link" %>
         </li>
 
-        <% if @application_count != 0 %>
+        <% if @job_application_count != 0 %>
           <% @user = User.find(current_user.id)%>
           <%= link_to notifications_path, class: "navbar-bell-link" do %>
-            <span class="universal-count"><%= @application_count %></span>
+            <span class="universal-count"><%= @job_application_count %></span>
             <%= image_tag "icons/bell-active.png", class: "bell-icon" %>
           <% end %>
         <% else %>

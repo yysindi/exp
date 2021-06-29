@@ -21,6 +21,10 @@ class JobPolicy < ApplicationPolicy
     true
   end
 
+  def search?
+    true
+  end
+
   def update?
     record.user == user || user.admin
   end

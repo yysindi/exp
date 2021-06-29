@@ -3,14 +3,18 @@ class NotificationsController < ApplicationController
   skip_after_action :verify_policy_scoped, only: :index
 
   def index
-    @application_count = 0
+    @job_application_count = 0
     @notifications = current_user.notifications.partition{|note| note.read? }.flatten.reverse
+    auth_notifications
+  end
+
+  private
+
+  def auth_notifications
     @notifications.each do |notification|
       authorize notification
     end
   end
-
-  private
 
   def mark_as_read
     @notifications.each do |notification|
