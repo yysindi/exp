@@ -9,7 +9,19 @@ class NotificationPolicy < ApplicationPolicy
     true
   end
 
+  def destroy?
+    record.user == user || user.admin
+  end
+
+  def update?
+    record.user == user || user.admin
+  end
+
+  def edit?
+    record.user == user || user.admin
+  end
+
   def show?
-    true
+    record.user == user || user.admin
   end
 end

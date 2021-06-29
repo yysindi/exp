@@ -71,6 +71,7 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
       @jobs = @jobs.where(sql_query, query: "%#{params[:search][:query]}%")
       auth_jobs
     end
+
     if params.dig(:search, :industry).present?
       @jobs = @jobs.where(industry: params[:search][:industry])
       auth_jobs
@@ -101,7 +102,7 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
 
     if params[:showpage]
       redirect_to job_path(Job.find(params[:id]))
-
+      auth_job
     else
       redirect_to jobs_path(scroll: true, ids: params[:ids])
     end

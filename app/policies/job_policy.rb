@@ -14,11 +14,11 @@ class JobPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    record.user == user || user.admin
   end
 
   def create?
-    true
+    record.user == user || user.admin
   end
 
   def search?

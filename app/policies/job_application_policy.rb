@@ -16,13 +16,11 @@ class JobApplicationPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    record.user == user || user.admin
   end
 
-# except create, as this is done already
-
   def create?
-    true
+    record.user == user || user.admin
   end
 
   def update?
