@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
    # post 'apply', to: 'pages#apply'
   resources :jobs do
-    resources :applications, only: [:create, :destroy]
+    resources :job_applications, only: [:create, :destroy]
   end
 
   post '/search', to: 'jobs#search'

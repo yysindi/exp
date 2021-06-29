@@ -83,26 +83,26 @@
       <% end %>
   </div>
   </div>
-  <% if @applications.any? %>
+  <% if @job_applications.any? %>
     <div class="profile-card-border-radius card m-4">
       <h4 class="mt-4 ml-3">Applications:</h4>
       <div class="jobs-profile d-flex flex-row justify-content-start flex-wrap">
-        <% @applications.each do |application| %>
+        <% @job_applications.each do |job_application| %>
           <div class="card d-flex card-job" style="width:202px;">
-            <% if application.job.logo.present? %>
-              <%= image_tag application.job.logo, class:"logo-img" %>
+            <% if job_application.job.logo.present? %>
+              <%= image_tag job_application.job.logo, class:"logo-img" %>
             <% else %>
               <%= image_tag "exp-logo/logo-01.png", class: "logo-img" %>
             <% end %>
 
             <div class="card-body profile-card">
-              <p class="mb-3" style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=application.job.title%> </p>
-              <% if application.status == 'applied' %>
-                <p class="status-applied"><%= application.status %></p>
-              <% elsif application.status == 'accepted' %>
-                <p class="status-accepted"><%= application.status %></p>
-              <% elsif application.status == 'completed' %>
-                <p class="status-completed"><%= application.status %></p>
+              <p class="mb-3" style="font-size: 16px;"> <%= icon('fas', 'crown') %> <%=job_application.job.title%> </p>
+              <% if job_application.status == 'applied' %>
+                <p class="status-applied"><%= job_application.status %></p>
+              <% elsif job_application.status == 'accepted' %>
+                <p class="status-accepted"><%= job_application.status %></p>
+              <% elsif job_application.status == 'completed' %>
+                <p class="status-completed"><%= job_application.status %></p>
               <% end %>
             </div>
           </div>

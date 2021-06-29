@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_24_093518) do
+ActiveRecord::Schema.define(version: 2021_06_27_165402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,17 +34,6 @@ ActiveRecord::Schema.define(version: 2021_06_24_093518) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "applications", force: :cascade do |t|
-    t.bigint "job_id", null: false
-    t.bigint "user_id", null: false
-    t.string "status", default: "applied"
-    t.date "date_applied"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["job_id"], name: "index_applications_on_job_id"
-    t.index ["user_id"], name: "index_applications_on_user_id"
   end
 
   create_table "exp_scores", force: :cascade do |t|
@@ -75,6 +64,17 @@ ActiveRecord::Schema.define(version: 2021_06_24_093518) do
     t.index ["scope"], name: "index_favorites_on_scope"
   end
 
+  create_table "job_applications", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.bigint "user_id", null: false
+    t.string "status", default: "applied"
+    t.date "date_applied"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_job_applications_on_job_id"
+    t.index ["user_id"], name: "index_job_applications_on_user_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "industry"
     t.string "title"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2021_06_24_093518) do
     t.string "logo"
     t.string "website"
     t.boolean "paid"
-    t.integer "compensation"
+    t.money "compensation", scale: 2
     t.date "start_date"
     t.date "end_date"
     t.boolean "accepting_applications"
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 2021_06_24_093518) do
     t.string "location"
     t.text "about"
     t.bigint "user_id"
-    t.float "currency"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -131,14 +130,16 @@ ActiveRecord::Schema.define(version: 2021_06_24_093518) do
     t.string "header_img"
     t.text "interesting_fact"
     t.string "where_want_to_work"
+# IMPORTANT! CHANGE BELOW IN PRODUCTION TO FALSE
+    t.boolean "admin", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "applications", "jobs"
-  add_foreign_key "applications", "users"
   add_foreign_key "exp_scores", "jobs"
   add_foreign_key "exp_scores", "users"
+  add_foreign_key "job_applications", "jobs"
+  add_foreign_key "job_applications", "users"
   add_foreign_key "jobs", "users"
 end

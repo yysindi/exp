@@ -2,7 +2,7 @@
 p 'Clearing database'
 
 ExpScore.destroy_all
-Application.destroy_all
+JobApplication.destroy_all
 Job.destroy_all
 User.destroy_all
 
