@@ -1,4 +1,4 @@
-class JobApplicationPolicy < ApplicationPolicy
+class FavoritePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -14,22 +14,22 @@ class JobApplicationPolicy < ApplicationPolicy
   end
 
   def new?
-    record.user == user || user.admin
+    true
   end
 
   def create?
-    record.user == user || user.admin
+    true
   end
 
   def update?
-    user.admin
+    true
   end
 
   def edit?
-    user.admin
+    true
   end
 
   def destroy?
-    record.user == user || user.admin
+    true
   end
 end

@@ -94,15 +94,12 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
   def toggle_favorite
     if !Job.find(params[:id]).favorited_by?(current_user)
       current_user.favorite(Job.find(params[:id]))
-      auth_job
     else
       current_user.unfavorite(Job.find(params[:id]))
-      auth_job
     end
 
     if params[:showpage]
       redirect_to job_path(Job.find(params[:id]))
-      auth_job
     else
       redirect_to jobs_path(scroll: true, ids: params[:ids])
     end

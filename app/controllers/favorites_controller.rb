@@ -1,30 +1,35 @@
 class FavoritesController < ApplicationController
-
   def index?
-    true
+    auth_favorite
   end
 
   def show?
-    true
+    auth_favorite
   end
 
   def create?
-    true
+    auth_favorite
   end
 
   def new?
-    true
+    auth_favorite
   end
 
   def edit?
-    true
+    auth_favorite
   end
 
   def destroy?
-    true
+    auth_favorite
   end
 
   def update?
-    true
+    auth_favorite
+  end
+
+  private
+
+  def auth_favorite
+    authorize @favorite
   end
 end
