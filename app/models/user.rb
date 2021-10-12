@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :exp_scores, dependent: :destroy
   has_many :jobs, through: :job_applications
   has_many :notifications, as: :recipient
-  has_many :jobs
+  has_many :jobs, dependent: :destroy
   has_one_attached :photo
 
   acts_as_favoritor

@@ -3,6 +3,7 @@ class JobApplicationsController < ApplicationController
     @job = Job.find(params[:job_id])
     authorize @job
     @user = current_user
+    authorize @user
     @job_application = JobApplication.new
     @job_application.date_applied = Time.now
     @job_application.job = @job

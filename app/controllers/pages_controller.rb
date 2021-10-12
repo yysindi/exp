@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @jobs = Job.last(3)
-    # @job = Job.find(params[:id])
+    #@job = Job.find(params[:id])
   end
 
   # def apply

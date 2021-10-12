@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_27_165402) do
+ActiveRecord::Schema.define(version: 2021_10_12_103059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2021_06_27_165402) do
     t.string "logo"
     t.string "website"
     t.boolean "paid"
-    t.money "compensation", scale: 2
+    t.decimal "compensation", precision: 8, scale: 2
     t.date "start_date"
     t.date "end_date"
     t.boolean "accepting_applications"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2021_06_27_165402) do
     t.string "location"
     t.text "about"
     t.bigint "user_id"
+    t.string "gig_style"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -130,7 +131,6 @@ ActiveRecord::Schema.define(version: 2021_06_27_165402) do
     t.string "header_img"
     t.text "interesting_fact"
     t.string "where_want_to_work"
-# IMPORTANT! CHANGE BELOW IN PRODUCTION TO FALSE
     t.boolean "admin", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

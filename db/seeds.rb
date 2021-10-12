@@ -12,7 +12,9 @@ user_second = User.create(name: 'Keith', email: 'keith@test.com', password: '123
 
 puts "creating jobs..."
 
-job1 = Job.create(title: "Front End Developer",
+job1 = Job.create(
+  user: user_first,
+  title: "Front End Developer",
   description: 'We are looking for a talented Graduate/Junior Frontend Developer who will play a significant role in creating best in class interfaces and outstanding interactive consumer apps. Whilst you may not have a lot of industry experience you will be able to demonstrate a passionate interest in rich, creative interface design and the latest technologies and development processes. You are a team player, can communicate ideas articulately and a fervent desire to learn quickly.',
   location: 'London',
   about: 'A great company with big ambitions to expend in the IT consultancy field, with a flexible work enviroment and a cultur of hard work and personal development',
@@ -29,7 +31,9 @@ job1 = Job.create(title: "Front End Developer",
 
 puts "creating job 1"
 
-job2 = Job.create(title: "Product design Intern",
+job2 = Job.create(
+  user: user_first,
+  title: "Product design Intern",
   description: 'As a New Product Innovation (NPI) graduate, you’ll be sketching, prototyping, testing, failing and refining to deliver the high standards of product development Dyson is known for, working on ideas that will disrupt and transform markets. You’ll need to be thoroughly hands-on, practically applying your technical knowledge with a creative flair to ensure that all engineering problems are resolved thoroughly.',
   location: 'Bath', 
   about: 'A great company with big ambitions to expend in the IT consultancy field, with a flexible work enviroment and a cultur of hard work and personal development',
@@ -46,7 +50,9 @@ job2 = Job.create(title: "Product design Intern",
 
 puts "creating job 2"
 
-job3 = Job.create(title: "Junior analyst",
+job3 = Job.create(
+  user: user_first,
+  title: "Junior analyst",
   description: 'Our Junior Commercial Analyst will have contact with most departments in the business on a weekly basis including our warehouse, transport team, quality team and our Outbases, so we need someone who can communicate with people on all levels in a friendly and professional way. You will report to the Commercial Manager and Senior Commercial Analyst and work very closely with our whole Commercial team to make sure we always have a full understanding of the cost areas and P&L.',
   location: 'London', 
   about: 'A great company with big ambitions to expend in the IT consultancy field, with a flexible work enviroment and a cultur of hard work and personal development', 
@@ -63,7 +69,9 @@ job3 = Job.create(title: "Junior analyst",
 
 puts "creating job 3"
 
-job4 = Job.create(title: "HR Intern",
+job4 = Job.create(
+  user: user_first,
+  title: "HR Intern",
   description: 'Kortext has seen significant growth in the last 12 months and this role is key to driving our expansion by continuing to build on this success. This varied role will help develop strong relationships with internal stakeholders supporting with all aspects of HR from recruitment to onboarding. Reporting into the HR Director this role requires an enthusiastic HR assistant looking for a challenge and growth in an exciting company. Learning from an experienced team this role would be perfect for a graduate or someone looking to take their first steps into the world of HR and Recruitment.',
   location: 'Remote or London', 
   about: 'A great company with big ambitions to expend in the IT consultancy field, with a flexible work enviroment and a cultur of hard work and personal development',
@@ -77,7 +85,9 @@ job4 = Job.create(title: "HR Intern",
   accepting_applications: true, 
   company_name: 'Atradius')
 
-job5 = Job.create(title: "Ruby on Rails Developer",
+job5 = Job.create(
+  user: user_first,
+  title: "Ruby on Rails Developer",
   description: 'Founded in 2013, Healios is a leading specialist digital healthcare company working to empower patients and families affected by mental health, autism and ADHD conditions to support long-term outcomes and wellbeing. Our mission is to bring exceptional healthcare to anyone, anytime, anywhere. Do you take pride in writing clean Ruby code? Come join our team and help us build amazing things. We’re looking for someone with a passion for programming and for writing beautiful code. You will join a team of exceptional developers working in a fast-paced environment to deliver world-class software.',
   location: 'London', 
   about: 'A great company with big ambitions to expend in the IT consultancy field, with a flexible work enviroment and a cultur of hard work and personal development', 
@@ -91,7 +101,9 @@ job5 = Job.create(title: "Ruby on Rails Developer",
   accepting_applications: true, 
   company_name: 'OP')
 
-job6 = Job.create(title: "Business Developement Intern",
+job6 = Job.create(
+  user: user_first,
+  title: "Business Developement Intern",
   description: 'KT Media Recruitment is looking for a Business Development Consultant to join a fast growing technology company who is the leading provider of global legal information, delivered through intelligent technologies and solutions. My client is looking for high achievers with a passion for sales and technology to join their rapidly expanding business development team. This is a remote role, and you will report directly to the Head of Business Development - Global Markets and form part of their UK based team.',
   location: 'Remote', 
   about: 'A great company with big ambitions to expend in the IT consultancy field, with a flexible work enviroment and a cultur of hard work and personal development', 
@@ -105,7 +117,9 @@ job6 = Job.create(title: "Business Developement Intern",
   accepting_applications: true, 
   company_name: 'Protector')
 
-job7 = Job.create(title: "Junior business analyst",
+job7 = Job.create(
+  user: user_first,
+  title: "Junior business analyst",
   description: 'We are looking for a talented Graduate/Junior Frontend Developer who will play a significant role in creating best in class interfaces and outstanding interactive consumer apps. Whilst you may not have a lot of industry experience you will be able to demonstrate a passionate interest in rich, creative interface design and the latest technologies and development processes. You are a team player, can communicate ideas articulately and a fervent desire to learn quickly.',
   location: 'London', 
   about: 'As a member of the Transformation Team, you will be right at the centre of our biggest challenges and opportunities. Our purpose is to forge best-in-class experiences for our customers and meaningful changes for teams. We put the building blocks into place to support sustainable growth. We are not about hype or buzzwords. We’re about the little and big improvements and everything in between.', 
@@ -119,7 +133,9 @@ job7 = Job.create(title: "Junior business analyst",
   accepting_applications: true, 
   company_name: 'Merkle')
 
-job8 = Job.create(title: "Frontend Developer",
+job8 = Job.create(
+  user: user_first,
+  title: "Frontend Developer",
   description: 'We are looking for an agile-minded mid-senior level Frontend developer. You will be creating and maintaining central features across our global website and contributing to and working alongside an established development team. Collaborate and communicate with design & Product teams, to understand user experience',
   location: 'Swansea', 
   about: 'Veeqo is an award winning high growth tech start-up company which has customers around the world and with ambitions to become the best platform for ecommerce retailers to manage their business.', 
@@ -133,7 +149,9 @@ job8 = Job.create(title: "Frontend Developer",
   accepting_applications: true, 
   company_name: 'Veeqo')
 
-job9 = Job.create(title: "Industrial / Product Design Intern",
+job9 = Job.create(
+  user: user_first,
+  title: "Industrial / Product Design Intern",
   description: 'Life as one of our graduate interns is challenging, extremely insightful and rewarding. As we continue to innovate and find new and exciting products for our business, we value the new perspective and ideas that graduates can bring, supporting existing teams to be more productive and adding value to projects and rewards we develop.',
   location: 'Heathrow', 
   about: 'tcc is the world leading provider or retail loyalty. Proudly independent for 30 years we have led the way by designing and implementing tailor made solutions for most of the worlds leading grocery retailers.', 
@@ -147,7 +165,9 @@ job9 = Job.create(title: "Industrial / Product Design Intern",
   accepting_applications: true, 
   company_name: 'TCC Global')
 
-job10 = Job.create(title: "Junior Designer - Homes Hub",
+job10 = Job.create(
+  user: user_first,
+  title: "Junior Designer - Homes Hub",
   description: 'You will be Involved In the design of regular pages and features across all titles and the design for digital, events and brand marketing. You will be required to check colour proofs, ensuring pages are of an excellent standard and any corrections or instructions have been actioned. General administrative tasks may be carried out to support the art team.',
   location: 'Remote', 
   about: 'We’re the UK’s leading premium publisher, and the people behind iconic media brands such as Cosmopolitan, Esquire, Elle, Harper’s Bazaar and Country Living. We’ve created a working environment that encourages everyone to pull together. We never stop looking for brave new ideas.', 
@@ -161,7 +181,9 @@ job10 = Job.create(title: "Junior Designer - Homes Hub",
   accepting_applications: true, 
   company_name: 'Hearst Media Services')
 
-job11 = Job.create(title: "Junior Operations Analyst",
+job11 = Job.create(
+  user: user_first,
+  title: "Junior Operations Analyst",
   description: 'The successful candidate will have a natural flair for analysis and MS Excel. The role will be responsible for providing Data Analysis and producing MI using technology such as s Tableau as well as producing reports, data manipulation and be an advanced MS Excel user.',
   location: 'Remote', 
   about: 'Here at ExamWorks we have a new and exciting opportunity to join our PIP Team, working as a Junior Operations Analyst. The role will be on a hybrid working model both home and office based as required.',
@@ -175,7 +197,9 @@ job11 = Job.create(title: "Junior Operations Analyst",
   accepting_applications: true, 
   company_name: 'Examworks Ltd ')
 
-job12 = Job.create(title: "Data Analyst",
+job12 = Job.create(
+  user: user_first,
+  title: "Data Analyst",
   description: 'Deliver analytical reports with the support of the team. Carry out ad hoc analysis to support the work of the organisation. Develop analytical projects with stakeholders. Support in contract management for projects within the team',
   location: 'Guildford', 
   about: 'Acas has been recognised for its Diversity and Inclusion in the workplace from the Employers Network for Equality and Inclusion awards – Disability Confident Highly Commended; Pay Gap award winner and Overall winner for public sector organisations.', 
@@ -189,7 +213,9 @@ job12 = Job.create(title: "Data Analyst",
   accepting_applications: true, 
   company_name: 'Acas')
 
-job13 = Job.create(title: "Marketing Graduate Trainee",
+job13 = Job.create(
+  user: user_first,
+  title: "Marketing Graduate Trainee",
   description: 'As a Graduate Trainee our aim is to develop you to be a leader within the marketing department. As such your development is critical to us. During your first two years we will provide you with quarterly feedback on how you are doing in your role and discuss with you how best you can develop your skills.',
   location: 'Dorset', 
   about: 'With a marketing team of 45 people and 25 years experience training and developing marketing graduates, we believe 288 Group offers the best Graduate Training for Marketers in Dorset.', 
@@ -203,7 +229,9 @@ job13 = Job.create(title: "Marketing Graduate Trainee",
   accepting_applications: true, 
   company_name: '288 Group')
 
-job14 = Job.create(title: "Graduate Software Developer Consultant ",
+job14 = Job.create(
+  user: user_first,
+  title: "Graduate Software Developer Consultant ",
   description: 'As a Software Developer Consultant at Netcompany, you have two roles; a Consultant and a Developer. As a consultant, you’ll interact with our clients, work alongside a multi-disciplinary team and develop problem-solving skills. As a developer, you are keen to use new technologies and working with your team to develop solutions for our clients.',
   location: 'Remote', 
   about: 'We are a Microsoft Gold partner and use web-based languages and Microsoft technologies on or projects. A great company with big ambitions to expend in the IT consultancy field, with a flexible work enviroment and a cultur of hard work and personal development',
@@ -217,7 +245,9 @@ job14 = Job.create(title: "Graduate Software Developer Consultant ",
   accepting_applications: true, 
   company_name: 'Deloitte')
 
-job15 = Job.create(title: "Product Marketing Intern",
+job15 = Job.create(
+  user: user_first,
+  title: "Product Marketing Intern",
   description: 'We are looking for an Intern to join our Product Marketing team. Our ideal candidate will have a passion for advertising, technology, content and marketing. This is a key role in supporting the Product Marketing team in its everyday tasks, but also interacting with the Sales, Marketing and Product teams.',
   location: 'Leeds',
   about: 'At Quantcast, we are the champions of a free and open internet. We are the creators of a new and innovative intelligent audience platform that empowers brands, agencies, and publishers to know and grow their audiences, reaching people in the right place, at the right moment.', 
@@ -231,7 +261,9 @@ job15 = Job.create(title: "Product Marketing Intern",
   accepting_applications: true, 
   company_name: 'Quantcast')
 
-job16 = Job.create(title: "Business Development Manager",
+job16 = Job.create(
+  user: user_first,
+  title: "Business Development Manager",
   description: 'This is an exciting opportunity to join a thriving national charity, to utilise a wide range of commercial and interpersonal skills and to develop the way our services support children. you will need to be a good writer, communicating ideas effectively on paper with an ability to analyse large volumes of information in order to develop clear and compelling responses to tenders. A rigorous attention to detail is also essential.',
   location: 'Crawley', 
   about: 'At Barnardos we believe in children – no matter who they are, what they have done or what they have been through. Please read about our basis and values following the link below. You will be asked questions relating to them as part of the recruitment process for this role.', 
